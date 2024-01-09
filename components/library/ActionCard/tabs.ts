@@ -1,4 +1,6 @@
-export const ActionCard = `import { useState } from "react";
+import { Tab } from '@/types';
+
+const ActionCard = `import { useState } from "react";
 import { Card, BlockStack, Text, Button, ActionList, Popover } from "@shopify/polaris";
 
 export const ActionCard = () => {
@@ -43,4 +45,25 @@ export const ActionCard = () => {
       </BlockStack>
     </Card>
   );
-};`
+};`;
+
+const Example = `import { Layout, Page } from "@shopify/polaris";
+import { ActionCard } from "./ActionCard";
+
+export const Example = () => {
+  return (
+    <Page narrowWidth>
+      <Layout>
+        <Layout.Section>
+          <ActionCard />
+        </Layout.Section>
+      </Layout>
+    </Page>
+  );
+};
+`;
+
+export const tabs: Tab[] = [
+  { title: 'Example Usage', content: Example },
+  { title: 'ActionCard.jsx', content: ActionCard }
+];

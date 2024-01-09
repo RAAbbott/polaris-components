@@ -4,11 +4,24 @@ A collection of components for Shopify app developers, based on the Polaris UI l
 
 ## Documentation
 
-TODO
+Components are stored under `/components/library`
+
+```
+components
+└── library
+    └── ActionCard
+        ├── Preview
+        │   ├── ActionCard.jsx
+        │   ├── Example.jsx
+        │   └── index.ts
+        ├── tabs.ts
+        └── index.ts
+    ...    
+```
 
 ## Contributing
 
-TODO
+Please read the [contributing guide](/CONTRIBUTING.md).
 
 ## License
 
