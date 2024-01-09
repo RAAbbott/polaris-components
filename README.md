@@ -9,15 +9,14 @@ Components are stored under `/components/library`
 ```
 components
 └── library
-    ├── ActionCard
-        ├── preview
+    └── ActionCard
+        ├── Preview
         │   ├── ActionCard.jsx
         │   ├── Example.jsx
         │   └── index.ts
-        └── tabs
-            ├── example
-            └── ui
+        ├── tabs.ts
         └── index.ts
+    ...    
 ```
 
 ## Contributing
