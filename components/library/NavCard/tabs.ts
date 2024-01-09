@@ -1,4 +1,6 @@
-export const NavCard = `import { Card, Text, InlineStack, Icon } from "@shopify/polaris";
+import { Tab } from "@/types";
+
+const NavCard = `import { Card, Text, InlineStack, Icon } from "@shopify/polaris";
 import { ChevronRightMinor, OrdersMajor } from "@shopify/polaris-icons";
 
 export const NavCard = () => {
@@ -21,3 +23,24 @@ export const NavCard = () => {
   );
 };
 `;
+
+const Example = `import { Page, Layout } from "@shopify/polaris";
+import { NavCard } from "./NavCard";
+
+export const Example = () => {
+  return (
+    <Page narrowWidth>
+      <Layout>
+        <Layout.Section>
+          <NavCard />
+        </Layout.Section>
+      </Layout>
+    </Page>
+  );
+};
+`;
+
+export const tabs: Tab[] = [
+  { title: 'Example Usage', content: Example },
+  { title: 'NavCard.jsx', content: NavCard }
+];
