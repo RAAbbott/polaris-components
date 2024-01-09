@@ -18,7 +18,7 @@
     "@dnd-kit/modifiers": "^7.0.0",
     "@dnd-kit/sortable": "^8.0.0",
     "@dnd-kit/utilities": "^3.2.2",
-    "@shopify/polaris": "^12.1.1",
+    "@shopify/polaris": "^12.6.0",
     "@shopify/polaris-icons": "^7.8.0",
     "@vercel/analytics": "^1.1.1",
     "autoprefixer": "10.4.14",
