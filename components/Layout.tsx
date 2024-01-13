@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { PropsWithChildren, useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Frame, Navigation, TopBar, useBreakpoints } from '@shopify/polaris';
 import {
@@ -11,7 +11,7 @@ import {
 import '@shopify/polaris/build/esm/styles.css';
 import { Analytics } from '@vercel/analytics/react';
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children }: PropsWithChildren) => {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const { asPath, pathname, push } = useRouter();
   const { mdDown } = useBreakpoints();
@@ -29,7 +29,13 @@ export const Layout = ({ children }) => {
   const userMenu = (
     <>
       <div style={{ marginLeft: '10px' }} />
-      <TopBar.UserMenu name='Shopify Partner' initials='SP' />
+      <TopBar.UserMenu
+        name='Shopify Partner'
+        initials='SP'
+        actions={[]}
+        onToggle={() => null}
+        open={false}
+      />
     </>
   );
 
@@ -37,7 +43,7 @@ export const Layout = ({ children }) => {
     <TopBar showNavigationToggle userMenu={userMenu} onNavigationToggle={handleNavigationToggle} />
   );
 
-  const changePage = async (route) => {
+  const changePage = async (route: string) => {
     await push(route, undefined, { shallow: true });
     if (mdDown) {
       handleNavigationToggle();
@@ -89,6 +95,12 @@ export const Layout = ({ children }) => {
               icon: AppsMinor,
               selected: asPath === '/components/nav-card',
               onClick: () => changePage('/components/nav-card')
+            },
+            {
+              label: 'Feedback Card',
+              icon: AppsMinor,
+              selected: asPath === '/components/feedback-card',
+              onClick: () => changePage('/components/feedback-card')
             }
           ]}
           action={{

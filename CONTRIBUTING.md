@@ -72,4 +72,19 @@ export const title = 'Action Card'; // REQUIRED
 export const contributor = 'RAAbbott';
 ```
 
+The last step is adding your component to the `Navigation` component in `Layout.tsx`. In the `items` prop of the component section, add a new item object with this structure:
+
+```
+{
+    label: 'Component Name',
+    icon: AppsMinor, // Just leave this as AppsMinor for now
+    selected: asPath === '/components/component-name', // component name should be in kebab-case
+    onClick: () => changePage('/components/component-name') // should use same route as above prop
+}
+```
+
+## Testing
+
+After you add these changes, verify that the component is showing up in the navigation bar and that clicking it takes you to the component page. Verify that the code files and the rendered preview are correct. We don't have any automated testing at the moment, but you should test your implementation from the perspective of a user, copying over the code files from the UI to a project with Polaris (v12) installed and ensuring it works as expected in a different setup/environment.
+
 If you build your component with this same structure in place, everything should show up correctly in the component preview and code files. If you have any questions you can reach out to me on [twitter](https://x.com/devwithalex) or open a discussion if you run into any bugs/roadblocks.
