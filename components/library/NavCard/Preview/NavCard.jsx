@@ -1,4 +1,4 @@
-import { Card, Text, InlineStack, Icon, Link } from '@shopify/polaris';
+import { Card, Text, InlineStack, Icon } from '@shopify/polaris';
 import { ChevronRightMinor, OrdersMajor } from '@shopify/polaris-icons';
 
 export const NavCard = () => {
