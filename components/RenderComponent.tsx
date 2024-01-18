@@ -160,9 +160,9 @@ export const RenderComponent = ({ title, Preview, tabs, Banner }: PageComponent)
           </div>
 
           {/* Resize drag handler */}
-          <div className='absolute -top-[36px] flex justify-start bg-white items-center left-12 z-[1000000000]'>
+          <div className='absolute -top-[36px] flex justify-start bg-white items-center left-12'>
             <div
-              className={`py-2 px-3 cursor-ns-resize select-none z-[100000000] touch-none`}
+              className={`py-2 px-3 cursor-ns-resize select-none touch-none`}
               onMouseDown={resizingMouse}
               onTouchStart={resizingTouch}
             >
@@ -172,13 +172,11 @@ export const RenderComponent = ({ title, Preview, tabs, Banner }: PageComponent)
 
           {/* Tabs for component files */}
           <div className='absolute -top-[36px] left-24'>
-            <div className='min-w-fit border-1 border-solid flex justify-start bg-gray-200 overflow-x-auto overflow-y-hidden'>
+            <div className='min-w-fit flex justify-start bg-gray-200 overflow-x-auto overflow-y-hidden'>
               {tabs.map(({ title }: { title: string }, i: number) => (
                 <div
                   key={i}
-                  className={`py-2 px-3 cursor-pointer min-w-fit ${
-                    i === tab ? 'bg-white border-b-2 border-solid border-black' : ''
-                  }`}
+                  className={`py-2 px-3 cursor-pointer min-w-fit ${i === tab ? 'bg-white' : ''}`}
                   onClick={() => setTab(i)}
                 >
                   {title}

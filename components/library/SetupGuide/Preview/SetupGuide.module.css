@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #303030;
 }
 
 .itemContent {
