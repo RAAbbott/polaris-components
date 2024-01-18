@@ -1,14 +1,14 @@
-import { Card, Text, InlineStack, Icon } from "@shopify/polaris";
-import { ChevronRightMinor, OrdersMajor } from "@shopify/polaris-icons";
+import { Card, Text, InlineStack, Icon } from '@shopify/polaris';
+import { ChevronRightMinor, OrdersMajor } from '@shopify/polaris-icons';
 
 export const NavCard = () => {
   return (
-    <Card>
-      <a href="https://example.com" target="_blank" style={{ display: "block", width: "100%" }}>
-        <InlineStack blockAlign="center" align="space-between">
-          <InlineStack align="center" gap="200">
+    <a href='https://example.com' target='_blank' style={{ textDecoration: 'none', color: 'inherit' }}>
+      <Card>
+        <InlineStack blockAlign='center' align='space-between'>
+          <InlineStack align='center' gap='200'>
             <Icon source={OrdersMajor} />
-            <Text as="p" variant="headingMd">
+            <Text as='p' variant='headingMd'>
               38 orders to fulfill
             </Text>
           </InlineStack>
@@ -16,7 +16,7 @@ export const NavCard = () => {
             <Icon source={ChevronRightMinor} />
           </div>
         </InlineStack>
-      </a>
-    </Card>
+      </Card>
+    </a>
   );
 };
