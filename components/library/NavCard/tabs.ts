@@ -1,6 +1,6 @@
 import { Tab } from '@/types';
 
-const NavCard = `import { Card, Text, InlineStack, Icon, Link } from '@shopify/polaris';
+const NavCard = `import { Card, Text, InlineStack, Icon } from '@shopify/polaris';
 import { ChevronRightMinor, OrdersMajor } from '@shopify/polaris-icons';
 
 export const NavCard = () => {
