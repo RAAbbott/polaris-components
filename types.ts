@@ -10,6 +10,7 @@ export type PageComponent = {
   Preview: () => ReactNode; // Component preview rendered in top section
   tabs: Tab[];
   title: string;
+  subtitle?: string;
   Banner?: () => ReactNode; // Optional banner exported from components to provide context (e.g. external deps)
   contributor?: string;
 };

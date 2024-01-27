@@ -62,7 +62,7 @@ const Item = ({ id, title, status }) => {
               {...listeners}
               onClick={(e) => e.stopPropagation()}
               className={styles.itemAction}
-              style={{ touchAction: 'none' }} // Prevents page scrolling on mobile touch
+              style={{ touchAction: 'none', display: 'flex' }} // Prevents page scrolling on mobile touch
             >
               <DragHandleMinor width='20' height='20' />
             </div>

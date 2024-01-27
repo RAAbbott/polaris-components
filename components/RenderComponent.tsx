@@ -9,7 +9,7 @@ import {
 import { LiveEditor, LiveProvider } from 'react-live';
 import { PageComponent, UserEventType } from '@/types';
 
-export const RenderComponent = ({ title, Preview, tabs, Banner }: PageComponent) => {
+export const RenderComponent = ({ title, Preview, tabs, Banner, subtitle }: PageComponent) => {
   const [tab, setTab] = useState(0);
   const [maxHeight, setMaxHeight] = useState(0);
   const [height, setHeight] = useState(250);
@@ -116,6 +116,7 @@ export const RenderComponent = ({ title, Preview, tabs, Banner }: PageComponent)
     <Page
       title={title}
       fullWidth
+      subtitle={subtitle}
       // Considering adding a metadata text that shows the contributor
       // username and links to their GitHub. Code below if I decide to add it.
       // titleMetadata={
