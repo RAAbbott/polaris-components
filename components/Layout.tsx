@@ -101,6 +101,12 @@ export const Layout = ({ children }: PropsWithChildren) => {
               icon: AppsMinor,
               selected: asPath === '/components/feedback-card',
               onClick: () => changePage('/components/feedback-card')
+            },
+            {
+              label: 'Accordion',
+              icon: AppsMinor,
+              selected: asPath === '/components/accordion',
+              onClick: () => changePage('/components/accordion')
             }
           ]}
           action={{
