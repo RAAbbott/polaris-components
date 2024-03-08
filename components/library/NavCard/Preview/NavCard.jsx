@@ -1,5 +1,5 @@
 import { Card, Text, InlineStack, Icon } from '@shopify/polaris';
-import { ChevronRightMinor, OrdersMajor } from '@shopify/polaris-icons';
+import { ChevronRightIcon, OrderIcon } from "@shopify/polaris-icons";
 
 export const NavCard = () => {
   return (
@@ -7,13 +7,13 @@ export const NavCard = () => {
       <Card>
         <InlineStack blockAlign='center' align='space-between'>
           <InlineStack align='center' gap='200'>
-            <Icon source={OrdersMajor} />
+            <Icon source={OrderIcon} />
             <Text as='p' variant='headingMd'>
               38 orders to fulfill
             </Text>
           </InlineStack>
           <div>
-            <Icon source={ChevronRightMinor} />
+            <Icon source={ChevronRightIcon} />
           </div>
         </InlineStack>
       </Card>

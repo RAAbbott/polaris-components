@@ -1,7 +1,7 @@
 import { Tab } from '@/types';
 
 const FeedbackCard = `import { Card, BlockStack, Text, Button, ButtonGroup, InlineStack } from '@shopify/polaris';
-import { CancelMinor, ThumbsDownMinor, ThumbsUpMinor } from '@shopify/polaris-icons';
+import { CancelIcon, ThumbsDownIcon, ThumbsUpIcon } from '@shopify/polaris-icons';
 
 export const FeedbackCard = () => {
   return (
@@ -12,17 +12,17 @@ export const FeedbackCard = () => {
             <Text as='h2' variant='headingMd'>
               Share your feedback
             </Text>
-            <CancelMinor width='1rem' height='1rem' style={{ cursor: 'pointer' }} />
+            <CancelIcon width='1rem' height='1rem' style={{ cursor: 'pointer' }} />
           </InlineStack>
           <Text as='p' variant='bodyMd' tone='subdued'>
             How would you describe your experience using the Polaris Components app?
           </Text>
         </BlockStack>
         <ButtonGroup>
-          <Button icon={ThumbsUpMinor} onClick={() => null}>
+          <Button icon={ThumbsUpIcon} onClick={() => null}>
             Good
           </Button>
-          <Button icon={ThumbsDownMinor} onClick={() => null}>
+          <Button icon={ThumbsDownIcon} onClick={() => null}>
             Bad
           </Button>
         </ButtonGroup>

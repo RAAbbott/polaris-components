@@ -385,10 +385,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shopify/polaris-icons@npm:^7.13.0, @shopify/polaris-icons@npm:^7.8.0":
+"@shopify/polaris-icons@npm:^7.13.0":
   version: 7.13.0
   resolution: "@shopify/polaris-icons@npm:7.13.0"
   checksum: c07c2178b1950c375b6df7e66ecdfab758d2dc9d9b029a71062a3549ee17e48907f824e54922a9122432c5ee8ac84f1502486ab5353f43f6a45a08a481b5ede7
+  languageName: node
+  linkType: hard
+
+"@shopify/polaris-icons@npm:^8.0.0":
+  version: 8.1.0
+  resolution: "@shopify/polaris-icons@npm:8.1.0"
+  checksum: b097ca94e0e0080dc5520a7ef1b7a3e864bb5c82a573eac90407fc1a62eec98a5b661c439ae4d0f73c3ccacfbee53eb9c9db940eb5f743e1a03859daba4fb992
   languageName: node
   linkType: hard
 
@@ -3549,7 +3556,7 @@ __metadata:
     "@dnd-kit/sortable": "npm:^8.0.0"
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@shopify/polaris": "npm:^12.6.0"
-    "@shopify/polaris-icons": "npm:^7.8.0"
+    "@shopify/polaris-icons": "npm:^8.0.0"
     "@types/node": "npm:20.4.9"
     "@types/react": "npm:18.2.47"
     "@types/react-dom": "npm:18.2.7"
