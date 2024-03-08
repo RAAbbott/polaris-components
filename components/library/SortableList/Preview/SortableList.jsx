@@ -10,7 +10,7 @@ import {
   Badge,
   Button
 } from '@shopify/polaris';
-import { DragHandleMinor, MobileCancelMajor } from '@shopify/polaris-icons';
+import { DragHandleIcon, XIcon } from "@shopify/polaris-icons";
 import {
   DndContext,
   closestCenter,
@@ -64,7 +64,7 @@ const Item = ({ id, title, status }) => {
               className={styles.itemAction}
               style={{ touchAction: 'none', display: 'flex' }} // Prevents page scrolling on mobile touch
             >
-              <DragHandleMinor width='20' height='20' />
+              <DragHandleIcon width='20' height='20' />
             </div>
             {/* Don't use `media` prop of ResourceItem, if you need to you can place your Avatar or Image here instead after the DragHandler */}
             <Avatar size='md' name={title} />
@@ -84,7 +84,7 @@ const Item = ({ id, title, status }) => {
                 console.log('Remove Item');
               }}
             >
-              <Button icon={MobileCancelMajor} variant='monochromePlain'></Button>
+              <Button icon={XIcon} variant='monochromePlain'></Button>
             </div>
           </InlineStack>
         </InlineStack>

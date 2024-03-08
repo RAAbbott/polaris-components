@@ -20,11 +20,11 @@ import {
   Image
 } from '@shopify/polaris';
 import {
-  MobileHorizontalDotsMajor,
-  ChevronDownMinor,
-  ChevronUpMinor,
-  TickMinor,
-  CancelMinor
+  MobileHorizontalDotsIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  TickIcon,
+  CancelIcon
 } from '@shopify/polaris-icons';
 import styles from './SetupGuide.module.css';
 
@@ -51,7 +51,7 @@ export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
                   <Button
                     onClick={() => setPopoverActive((prev) => !prev)}
                     variant='tertiary'
-                    icon={MobileHorizontalDotsMajor}
+                    icon={MobileHorizontalDotsIcon}
                   />
                 }
               >
@@ -69,7 +69,7 @@ export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
                             paddingTop: '.05rem'
                           }}
                         >
-                          <Icon tone='subdued' source={CancelMinor} />
+                          <Icon tone='subdued' source={CancelIcon} />
                         </div>
                       )
                     }
@@ -79,7 +79,7 @@ export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
 
               <Button
                 variant='tertiary'
-                icon={isGuideOpen ? ChevronUpMinor : ChevronDownMinor}
+                icon={isGuideOpen ? ChevronUpIcon : ChevronDownIcon}
                 onClick={() => {
                   setIsGuideOpen((prev) => {
                     if (!prev) setExpanded(items.findIndex((item) => !item.complete));
@@ -99,7 +99,7 @@ export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
                 <div style={{ maxHeight: '1rem' }}>
                   <InlineStack wrap={false} gap='100'>
                     <Icon
-                      source={TickMinor}
+                      source={TickIcon}
                       tone='subdued'
                       accessibilityLabel='Check icon to indicate completion of Setup Guide'
                     />
@@ -195,7 +195,7 @@ const SetupItem = ({
                 {loading ? (
                   <Spinner size='small' />
                 ) : complete ? (
-                  <TickMinor
+                  <TickIcon
                     style={{
                       width: '1.25rem',
                       height: '1.25rem',

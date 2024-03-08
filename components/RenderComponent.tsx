@@ -1,11 +1,6 @@
 import { useState, useEffect, useRef, useCallback, MouseEvent, TouchEvent } from 'react';
 import { Page, Layout, Toast, Button } from '@shopify/polaris';
-import {
-  ChevronDownMinor,
-  ChevronUpMinor,
-  DragHandleMinor,
-  DuplicateMinor
-} from '@shopify/polaris-icons';
+import { ChevronDownIcon, ChevronUpIcon, DragHandleIcon, DuplicateIcon } from "@shopify/polaris-icons";
 import { LiveEditor, LiveProvider } from 'react-live';
 import { PageComponent, UserEventType } from '@/types';
 
@@ -153,9 +148,9 @@ export const RenderComponent = ({ title, Preview, tabs, Banner, subtitle }: Page
           <div className='absolute -top-[36px] flex justify-start bg-white items-center'>
             <div className={`py-2 px-3 cursor-pointer`} onClick={toggleMinimize}>
               {isMinimized ? (
-                <ChevronUpMinor fill='black' height='20px' width='20px' />
+                <ChevronUpIcon fill='black' height='20px' width='20px' />
               ) : (
-                <ChevronDownMinor fill='black' height='20px' width='20px' />
+                <ChevronDownIcon fill='black' height='20px' width='20px' />
               )}
             </div>
           </div>
@@ -167,7 +162,7 @@ export const RenderComponent = ({ title, Preview, tabs, Banner, subtitle }: Page
               onMouseDown={resizingMouse}
               onTouchStart={resizingTouch}
             >
-              <DragHandleMinor fill='black' height='20px' width='20px' />
+              <DragHandleIcon fill='black' height='20px' width='20px' />
             </div>
           </div>
 
@@ -197,7 +192,7 @@ export const RenderComponent = ({ title, Preview, tabs, Banner, subtitle }: Page
             {/* Copy icon in top right */}
             <div className='absolute top-4 right-6 cursor-pointer hover:opacity-90 bg-[rgb(1,22,39)]'>
               <Button
-                icon={DuplicateMinor}
+                icon={DuplicateIcon}
                 size='large'
                 onClick={() => {
                   navigator.clipboard.writeText(tabs[tab].content);

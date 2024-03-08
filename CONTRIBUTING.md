@@ -3,7 +3,7 @@
 *(This is a work in progress)*
 
 **IMPORTANT - Before opening a pull request to contribute, make sure your component meets these guidelines:**
-- Compatible with the latest major version of [Polaris](https://polaris.shopify.com/) (currently v12)
+- Compatible with the latest major version of [Polaris](https://polaris.shopify.com/) (currently v12) and the latest major version of [Polaris Icons](https://polaris.shopify.com/icons) (currently v8)
 - Follows design guidelines laid out by the Polaris docs ([design](https://polaris.shopify.com/design), [content](https://polaris.shopify.com/content), and [patterns](https://polaris.shopify.com/patterns))
 - Primarily built with components from the Polaris library, filling in blanks with html + css where needed (prefer inline styles for the sake of copy/paste ease, use a css module if needed)
 - External dependencies should be used *sparingly*
@@ -77,7 +77,7 @@ The last step is adding your component to the `Navigation` component in `Layout.
 ```
 {
     label: 'Component Name',
-    icon: AppsMinor, // Just leave this as AppsMinor for now
+    icon: AppsIcon,
     selected: asPath === '/components/component-name', // component name should be in kebab-case
     onClick: () => changePage('/components/component-name') // should use same route as above prop
 }

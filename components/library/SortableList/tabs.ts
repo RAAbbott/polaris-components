@@ -13,7 +13,7 @@ const SortableList =
     Badge,
     Button
   } from '@shopify/polaris';
-  import { DragHandleMinor, MobileCancelMajor } from '@shopify/polaris-icons';
+  import { DragHandleIcon, MobileCancelIcon } from '@shopify/polaris-icons';
   import {
     DndContext,
     closestCenter,
@@ -71,7 +71,7 @@ const SortableList =
                 className={styles.itemAction}
                 style={{ touchAction: 'none' }} // Prevents page scrolling on mobile touch
               >
-                <DragHandleMinor width='20' height='20' />
+                <DragHandleIcon width='20' height='20' />
               </div>
               {/* Don't use ` +
   '`media`' +
@@ -95,7 +95,7 @@ const SortableList =
                   console.log('Remove Item');
                 }}
               >
-                <Button icon={MobileCancelMajor} variant='monochromePlain'></Button>
+                <Button icon={MobileCancelIcon} variant='monochromePlain'></Button>
               </div>
             </InlineStack>
           </InlineStack>

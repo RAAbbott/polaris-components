@@ -2,7 +2,7 @@ import { Tab } from '@/types';
 
 const Accordion = `import { useState } from 'react';
 import { Card, Box, InlineStack, Text, Collapsible } from '@shopify/polaris';
-import { ChevronUpMinor, ChevronDownMinor } from '@shopify/polaris-icons';
+import { ChevronUpIcon, ChevronDownIcon } from '@shopify/polaris-icons';
 
 export const Accordion = () => {
   const [expanded, setExpanded] = useState(0); // Set to null if none should be expanded by default
@@ -30,9 +30,9 @@ export const Accordion = () => {
                     {title}
                   </Text>
                   {isExpanded ? (
-                    <ChevronUpMinor width='1.5rem' height='1.5rem' />
+                    <ChevronUpIcon width='1.5rem' height='1.5rem' />
                   ) : (
-                    <ChevronDownMinor width='1.5rem' height='1.5rem' />
+                    <ChevronDownIcon width='1.5rem' height='1.5rem' />
                   )}
                 </InlineStack>
               </div>
