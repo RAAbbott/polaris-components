@@ -36,7 +36,7 @@ export const PricingCard = ({ title, description, price, features, featuredText,
               {price}
             </Text>
             <Box paddingBlockEnd="200">
-              <Text variant="bodySm">/ {frequency}</Text>
+              <Text as="p" variant="bodySm">/ {frequency}</Text>
             </Box>
           </InlineStack>
 
