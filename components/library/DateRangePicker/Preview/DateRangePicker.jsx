@@ -12,7 +12,7 @@ import {
   BlockStack,
   InlineStack
 } from '@shopify/polaris';
-import { ArrowRightIcon } from '@shopify/polaris-icons';
+import { ArrowRightIcon, CalendarIcon } from '@shopify/polaris-icons';
 
 export const DateRangePicker = ({ onDateRangeSelect }) => {
   const today = new Date(new Date().setHours(0, 0, 0, 0));
@@ -103,7 +103,7 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
         sectioned={false}
         fullHeight
         activator={
-          <Button size='slim' onClick={() => setPopoverActive(!popoverActive)}>
+          <Button icon={CalendarIcon} size='slim' onClick={() => setPopoverActive(!popoverActive)}>
             {activeDateRange.title}
           </Button>
         }
