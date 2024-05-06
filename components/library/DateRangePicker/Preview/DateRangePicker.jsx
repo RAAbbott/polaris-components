@@ -193,7 +193,7 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
               <InlineStack align='end' gap='200'>
                 <Button onClick={() => setPopoverActive(false)}>Cancel</Button>
                 <Button
-                  primary
+                  variant='primary'
                   onClick={() => {
                     onDateRangeSelect({
                       start: activeDateRange.period.since,
