@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {
   Popover,
   Button,
@@ -19,7 +19,6 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
   const yesterday = new Date(
     new Date(new Date().setDate(today.getDate() - 1)).setHours(0, 0, 0, 0)
   );
-  const lastMonth = new Date(new Date().setMonth(today.getMonth() - 1));
 
   const ranges = [
     { title: 'Today', period: { since: today, until: today } },
@@ -45,7 +44,6 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
         until: yesterday
       }
     },
-
     {
       title: 'Last 365 Days',
       period: {
@@ -55,38 +53,25 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
     },
     {
       title: 'Custom',
-      period: { since: lastMonth, until: yesterday }
+      period: { since: yesterday, until: yesterday }
     }
   ];
 
   const [popoverActive, setPopoverActive] = useState(false);
   const [activeDateRange, setActiveDateRange] = useState(ranges[0]);
   const [dateState, setDateState] = useState({
-    month: today.getMonth(),
-    year: today.getFullYear()
+    month: activeDateRange.period.since.getMonth(),
+    year: activeDateRange.period.since.getFullYear()
   });
 
-  const handleMonthChange = useCallback((newMonth, newYear) => {
-    setDateState({ month: newMonth, year: newYear });
-  }, []);
-
-  const [inputValues, setInputValues] = useState({});
-
   useEffect(() => {
-    if (activeDateRange) {
-      setInputValues({
-        since: formatDate(activeDateRange.period.since),
-        until: formatDate(activeDateRange.period.until)
-      });
-    }
+    setDateState({
+      month: activeDateRange.period.since.getMonth(),
+      year: activeDateRange.period.since.getFullYear()
+    });
   }, [activeDateRange]);
 
-  function formatDate(date) {
-    return date.toISOString().split('T')[0];
-  }
-
-  function handleInputValueChange(field, value) {
-    setInputValues((prevState) => ({ ...prevState, [field]: value }));
+  const handleInputValueChange = useCallback((field, value) => {
     if (isValidDate(value)) {
       const newDate = new Date(value);
       setActiveDateRange((prevState) => ({
@@ -97,14 +82,14 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
         }
       }));
     }
+  }, []);
+
+  function formatDate(date) {
+    return date.toISOString().split('T')[0];
   }
 
   function isValidDate(date) {
     return !isNaN(new Date(date).getDate());
-  }
-
-  function handlePopoverClose() {
-    setPopoverActive(false);
   }
 
   return (
@@ -122,7 +107,7 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
             {activeDateRange.title}
           </Button>
         }
-        onClose={handlePopoverClose}
+        onClose={() => setPopoverActive(false)}
       >
         <Box
           style={{
@@ -151,8 +136,9 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
                       label: range.title
                     }))}
                     selected={activeDateRange.title}
-                    onChange={(value) => {
-                      setActiveDateRange(ranges.find((range) => range.title === value[0]));
+                    onChange={(selected) => {
+                      const selectedRange = ranges.find((range) => range.title === selected[0]);
+                      setActiveDateRange(selectedRange);
                     }}
                   />
                 </Scrollable>
@@ -162,20 +148,20 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
                   <InlineStack gap='200'>
                     <div style={{ flexGrow: 1 }}>
                       <TextField
+                        label='Since'
                         role='combobox'
-                        value={inputValues.since}
-                        onChange={(e) => handleInputValueChange('since', e)}
-                        onBlur={handlePopoverClose}
+                        value={formatDate(activeDateRange.period.since)}
+                        onChange={(value) => handleInputValueChange('since', value)}
                         autoComplete='off'
                       />
                     </div>
                     <Icon source={ArrowRightIcon} tone='subdued' />
                     <div style={{ flexGrow: 1 }}>
                       <TextField
+                        label='Until'
                         role='combobox'
-                        value={inputValues.until}
-                        onChange={(e) => handleInputValueChange('until', e)}
-                        onBlur={handlePopoverClose}
+                        value={formatDate(activeDateRange.period.until)}
+                        onChange={(value) => handleInputValueChange('until', value)}
                         autoComplete='off'
                       />
                     </div>
@@ -194,7 +180,6 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
                           period: { since: start, until: end }
                         });
                       }}
-                      onMonthChange={handleMonthChange}
                       multiMonth
                       allowRange
                     />
@@ -208,7 +193,7 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
               <InlineStack align='end' gap='200'>
                 <Button onClick={() => setPopoverActive(false)}>Cancel</Button>
                 <Button
-                  variant='primary'
+                  primary
                   onClick={() => {
                     onDateRangeSelect({
                       start: activeDateRange.period.since,
