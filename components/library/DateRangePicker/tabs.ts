@@ -86,13 +86,9 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
     }
   }, []);
 
-  function formatDate(date) {
-    return date.toISOString().split('T')[0];
-  }
+  const formatDate = (date) => date.toISOString().split('T')[0];
 
-  function isValidDate(date) {
-    return !isNaN(new Date(date).getDate());
-  }
+  const isValidDate = (date) => !isNaN(new Date(date).getDate());
 
   return (
     <Box>
@@ -157,7 +153,14 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
                         autoComplete='off'
                       />
                     </div>
-                    <Icon source={ArrowRightIcon} tone='subdued' />
+                    <Box
+                      style={{
+                        marginTop: '5%'
+                      }}
+                    >
+                      <Icon source={ArrowRightIcon} tone='subdued' />
+                    </Box>
+
                     <div style={{ flexGrow: 1 }}>
                       <TextField
                         label='Until'
