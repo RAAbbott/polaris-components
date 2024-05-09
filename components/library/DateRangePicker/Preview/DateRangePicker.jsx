@@ -15,11 +15,12 @@ import {
 import { ArrowRightIcon, CalendarIcon } from '@shopify/polaris-icons';
 
 export const DateRangePicker = ({ onDateRangeSelect }) => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [popoverActive, setPopoverActive] = useState(false);
   const today = new Date(new Date().setHours(0, 0, 0, 0));
   const yesterday = new Date(
     new Date(new Date().setDate(today.getDate() - 1)).setHours(0, 0, 0, 0)
   );
-
   const ranges = [
     { title: 'Today', period: { since: today, until: today } },
     { title: 'Yesterday', period: { since: yesterday, until: yesterday } },
@@ -56,13 +57,25 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
       period: { since: yesterday, until: yesterday }
     }
   ];
-
-  const [popoverActive, setPopoverActive] = useState(false);
   const [activeDateRange, setActiveDateRange] = useState(ranges[0]);
   const [dateState, setDateState] = useState({
     month: activeDateRange.period.since.getMonth(),
     year: activeDateRange.period.since.getFullYear()
   });
+
+  const handleMonthChange = useCallback((month, year) => {
+    setDateState({ month, year });
+  }, []);
+
+  const formatDate = (date) => date.toISOString().split('T')[0];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     setDateState({
@@ -71,22 +84,7 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
     });
   }, [activeDateRange]);
 
-  const handleInputValueChange = useCallback((field, value) => {
-    if (isValidDate(value)) {
-      const newDate = new Date(value);
-      setActiveDateRange((prevState) => ({
-        ...prevState,
-        period: {
-          ...prevState.period,
-          [field]: newDate
-        }
-      }));
-    }
-  }, []);
-
-  const formatDate = (date) => date.toISOString().split('T')[0];
-
-  const isValidDate = (date) => !isNaN(new Date(date).getDate());
+  const isMobile = windowWidth < 768;
 
   return (
     <Box>
@@ -125,11 +123,19 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
                   paddingRight: '20px'
                 }}
               >
-                <Scrollable style={{ height: '334px' }}>
+                <Scrollable style={{ height: 'auto' }}>
                   <OptionList
                     options={ranges.map((range) => ({
                       value: range.title,
-                      label: range.title
+                      label: (
+                        <div
+                          style={{
+                            minWidth: '120px' // Adjust this value based on your longest label
+                          }}
+                        >
+                          {range.title}
+                        </div>
+                      )
                     }))}
                     selected={activeDateRange.title}
                     onChange={(selected) => {
@@ -147,29 +153,31 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
                         label='Since'
                         role='combobox'
                         value={formatDate(activeDateRange.period.since)}
-                        onChange={(value) => handleInputValueChange('since', value)}
                         autoComplete='off'
+                        readOnly
                       />
                     </div>
-                    <Box
-                      style={{
-                        marginTop: '5%'
-                      }}
-                    >
-                      <Icon source={ArrowRightIcon} tone='subdued' />
-                    </Box>
+                    {!isMobile ? (
+                      <Box
+                        style={{
+                          marginTop: '5%'
+                        }}
+                      >
+                        <Icon source={ArrowRightIcon} tone='subdued' />
+                      </Box>
+                    ) : null}
 
                     <div style={{ flexGrow: 1 }}>
                       <TextField
                         label='Until'
                         role='combobox'
                         value={formatDate(activeDateRange.period.until)}
-                        onChange={(value) => handleInputValueChange('until', value)}
                         autoComplete='off'
+                        readOnly
                       />
                     </div>
                   </InlineStack>
-                  <div>
+                  <div style={{ height: '256px' }}>
                     <DatePicker
                       month={dateState.month}
                       year={dateState.year}
@@ -183,7 +191,8 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
                           period: { since: start, until: end }
                         });
                       }}
-                      multiMonth
+                      onMonthChange={handleMonthChange}
+                      multiMonth={isMobile ? false : true}
                       allowRange
                     />
                   </div>
