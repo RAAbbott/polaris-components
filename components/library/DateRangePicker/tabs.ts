@@ -12,12 +12,13 @@ import {
   Scrollable,
   InlineGrid,
   BlockStack,
-  InlineStack
+  InlineStack,
+  useBreakpoints
 } from '@shopify/polaris';
 import { ArrowRightIcon, CalendarIcon } from '@shopify/polaris-icons';
 
 export const DateRangePicker = ({ onDateRangeSelect }) => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const { mdDown } = useBreakpoints();
   const [popoverActive, setPopoverActive] = useState(false);
   const today = new Date(new Date().setHours(0, 0, 0, 0));
   const yesterday = new Date(
@@ -72,21 +73,11 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
   const formatDate = (date) => date.toISOString().split('T')[0];
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
     setDateState({
       month: activeDateRange.period.since.getMonth(),
       year: activeDateRange.period.since.getFullYear()
     });
   }, [activeDateRange]);
-
-  const isMobile = windowWidth < 768;
 
   return (
     <Box>
@@ -159,7 +150,7 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
                         readOnly
                       />
                     </div>
-                    {!isMobile ? (
+                    {!mdDown ? (
                       <Box
                         style={{
                           marginTop: '5%'
@@ -194,7 +185,7 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
                         });
                       }}
                       onMonthChange={handleMonthChange}
-                      multiMonth={isMobile ? false : true}
+                      multiMonth={mdDown ? false : true}
                       allowRange
                     />
                   </div>
