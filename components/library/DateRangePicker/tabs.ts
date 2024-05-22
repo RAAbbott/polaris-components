@@ -17,7 +17,7 @@ import {
 } from '@shopify/polaris';
 import { ArrowRightIcon, CalendarIcon } from '@shopify/polaris-icons';
 
-export const DateRangePicker = ({ onDateRangeSelect }) => {
+export const DateRangePicker = ({ onDateRangeSelect, value: { start, end } }) => {
   const { mdDown } = useBreakpoints();
   const [popoverActive, setPopoverActive] = useState(false);
   const today = new Date(new Date().setHours(0, 0, 0, 0));
@@ -60,7 +60,31 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
       period: { since: yesterday, until: yesterday }
     }
   ];
-  const [activeDateRange, setActiveDateRange] = useState(ranges[0]);
+
+  const getDefaultDateRange = () => {
+    const areDatesEqual = (dateX, dateY) => dateX.toDateString() == dateY.toDateString();
+
+    if (start && end) {
+      const currentRange = ranges.find((range) => {
+        const { since, until } = range.period;
+
+        if (areDatesEqual(since, start) && areDatesEqual(until, end)) {
+          return true;
+        }
+      });
+
+      if (currentRange) {
+        return currentRange;
+      } else {
+        return { title: 'Custom', period: { since: start, until: end } };
+      }
+    }
+
+    return ranges[0];
+  };
+
+  const defaultRange = getDefaultDateRange();
+  const [activeDateRange, setActiveDateRange] = useState(defaultRange);
   const [dateState, setDateState] = useState({
     month: activeDateRange.period.since.getMonth(),
     year: activeDateRange.period.since.getFullYear()
@@ -196,7 +220,14 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
           <Popover.Pane fixed>
             <Popover.Section>
               <InlineStack align='end' gap='200'>
-                <Button onClick={() => setPopoverActive(false)}>Cancel</Button>
+                <Button
+                  onClick={() => {
+                    setActiveDateRange(defaultRange);
+                    setPopoverActive(false);
+                  }}
+                >
+                  Cancel
+                </Button>
                 <Button
                   variant='primary'
                   onClick={() => {
@@ -217,21 +248,27 @@ export const DateRangePicker = ({ onDateRangeSelect }) => {
     </Box>
   );
 };
+
 `;
 
-const Example = `import { Layout, Page } from '@shopify/polaris';
+const Example = `import { useState } from 'react';
+import { Layout, Page } from '@shopify/polaris';
 import { DateRangePicker } from './DateRangePicker';
 
 export const Example = () => {
+  const [date, setDate] = useState({}); // {start, end}
+
   return (
     <Page narrowWidth>
       <Layout>
         <Layout.Section>
           <DateRangePicker
+            value={date}
             onDateRangeSelect={({ start, end }) => {
               console.log('Selected Start Date:', start);
               console.log('Selected End Date:', end);
               // You can now do whatever you need with these dates, like setting state or making API calls
+              setDate({ start, end });
             }}
           />
         </Layout.Section>
@@ -239,6 +276,7 @@ export const Example = () => {
     </Page>
   );
 };
+
 `;
 
 export const tabs: Tab[] = [
