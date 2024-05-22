@@ -1,7 +1,7 @@
 import { PropsWithChildren, useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Frame, Navigation, TopBar, useBreakpoints } from '@shopify/polaris';
-import { AppsIcon, ChevronRightIcon, HomeIcon, ChatIcon, CodeIcon } from "@shopify/polaris-icons";
+import { AppsIcon, ChevronRightIcon, HomeIcon, ChatIcon, CodeIcon } from '@shopify/polaris-icons';
 import '@shopify/polaris/build/esm/styles.css';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -101,6 +101,12 @@ export const Layout = ({ children }: PropsWithChildren) => {
               icon: AppsIcon,
               selected: asPath === '/components/accordion',
               onClick: () => changePage('/components/accordion')
+            },
+            {
+              label: 'Date Range Picker',
+              icon: AppsIcon,
+              selected: asPath === '/components/date-range-picker',
+              onClick: () => changePage('/components/date-range-picker')
             }
           ]}
           action={{
@@ -112,40 +118,42 @@ export const Layout = ({ children }: PropsWithChildren) => {
       </Navigation>
     </div>
   );
-  return <>
-    <Analytics />
-    <Frame
-      navigation={AppNavigation}
-      topBar={topBar}
-      logo={logo}
-      showMobileNavigation={showMobileNav}
-      onNavigationDismiss={handleNavigationToggle}
-    >
-      <main className='h-full'>{children}</main>
-    </Frame>
+  return (
+    <>
+      <Analytics />
+      <Frame
+        navigation={AppNavigation}
+        topBar={topBar}
+        logo={logo}
+        showMobileNavigation={showMobileNav}
+        onNavigationDismiss={handleNavigationToggle}
+      >
+        <main className='h-full'>{children}</main>
+      </Frame>
 
-    {/* Bottom nav bar items */}
-    <div
-      className={`bottom-0 pt-[.5rem] fixed z-[1000] w-[15rem] ${
-        !mdDown ? 'text-[0.8125rem]' : showMobileNav ? 'text-[0.875rem]' : 'hidden'
-      }`}
-    >
-      <Navigation.Section
-        items={[
-          {
-            label: 'Github',
-            icon: CodeIcon,
-            url: 'https://github.com/RAAbbott/polaris-components',
-            external: true
-          },
-          {
-            label: 'Contact',
-            icon: ChatIcon,
-            url: 'https://www.x.com/devwithalex',
-            external: true
-          }
-        ]}
-      />
-    </div>
-  </>;
+      {/* Bottom nav bar items */}
+      <div
+        className={`bottom-0 pt-[.5rem] fixed z-[1000] w-[15rem] ${
+          !mdDown ? 'text-[0.8125rem]' : showMobileNav ? 'text-[0.875rem]' : 'hidden'
+        }`}
+      >
+        <Navigation.Section
+          items={[
+            {
+              label: 'Github',
+              icon: CodeIcon,
+              url: 'https://github.com/RAAbbott/polaris-components',
+              external: true
+            },
+            {
+              label: 'Contact',
+              icon: ChatIcon,
+              url: 'https://www.x.com/devwithalex',
+              external: true
+            }
+          ]}
+        />
+      </div>
+    </>
+  );
 };
