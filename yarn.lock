@@ -385,35 +385,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shopify/polaris-icons@npm:^7.13.0":
-  version: 7.13.0
-  resolution: "@shopify/polaris-icons@npm:7.13.0"
-  checksum: c07c2178b1950c375b6df7e66ecdfab758d2dc9d9b029a71062a3549ee17e48907f824e54922a9122432c5ee8ac84f1502486ab5353f43f6a45a08a481b5ede7
+"@shopify/polaris-icons@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "@shopify/polaris-icons@npm:9.1.0"
+  peerDependencies:
+    react: "*"
+  checksum: c09eab3de32feb7bd7a13a8e174d58ebdd1db16bb0725e2580b710d1324164c5cf3240bcd07b5c6bf9d07e7f15edde9b65eb0eb5a801b3c318bedc174b3d0b82
   languageName: node
   linkType: hard
 
-"@shopify/polaris-icons@npm:^8.0.0":
-  version: 8.1.0
-  resolution: "@shopify/polaris-icons@npm:8.1.0"
-  checksum: b097ca94e0e0080dc5520a7ef1b7a3e864bb5c82a573eac90407fc1a62eec98a5b661c439ae4d0f73c3ccacfbee53eb9c9db940eb5f743e1a03859daba4fb992
-  languageName: node
-  linkType: hard
-
-"@shopify/polaris-tokens@npm:^8.4.0":
-  version: 8.4.0
-  resolution: "@shopify/polaris-tokens@npm:8.4.0"
+"@shopify/polaris-tokens@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "@shopify/polaris-tokens@npm:9.1.0"
   dependencies:
     deepmerge: "npm:^4.3.1"
-  checksum: a95ecc8b737d5aaaa680a007a4fcd81efe6021ff4318064da0a417f0c13a33b7ddfeb7fd516f947cd4cfe2fade15495274e4f952a6a8fde8ecf21977ccdd40d6
+  checksum: f82c688aded7d717ce6499e524c7bfd244e863ca9cbb0d071a7b4c7a0ce052e87c6c8cf36ff59da0e0b9c944189e53ed3757d130c848aa009898c8e07764a221
   languageName: node
   linkType: hard
 
-"@shopify/polaris@npm:^12.6.0":
-  version: 12.6.0
-  resolution: "@shopify/polaris@npm:12.6.0"
+"@shopify/polaris@npm:^13.4.0":
+  version: 13.4.0
+  resolution: "@shopify/polaris@npm:13.4.0"
   dependencies:
-    "@shopify/polaris-icons": "npm:^7.13.0"
-    "@shopify/polaris-tokens": "npm:^8.4.0"
+    "@shopify/polaris-icons": "npm:^9.1.0"
+    "@shopify/polaris-tokens": "npm:^9.1.0"
     "@types/react": "npm:*"
     "@types/react-dom": "npm:*"
     "@types/react-transition-group": "npm:^4.4.2"
@@ -422,7 +417,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: ef80acd41b07d4ad662ba6cf873f935477722eb3ec908ec592162986363e4feadc69ddab2e6f6a3ecf3317fbac2982258684a1eedfb2cdc29312cef3e30bd4ee
+  checksum: 570bc4bdd702facb20c0d01b12421b9b6492e6afc06b8d382a9fa2f008447fab7787cff2f5e8fcbc659178ae4e7979d9331466da18c3b60f4dcbf2d23e2f70e3
   languageName: node
   linkType: hard
 
@@ -3555,8 +3550,8 @@ __metadata:
     "@dnd-kit/modifiers": "npm:^7.0.0"
     "@dnd-kit/sortable": "npm:^8.0.0"
     "@dnd-kit/utilities": "npm:^3.2.2"
-    "@shopify/polaris": "npm:^12.6.0"
-    "@shopify/polaris-icons": "npm:^8.0.0"
+    "@shopify/polaris": "npm:^13.4.0"
+    "@shopify/polaris-icons": "npm:^9.1.0"
     "@types/node": "npm:20.4.9"
     "@types/react": "npm:18.2.47"
     "@types/react-dom": "npm:18.2.7"
