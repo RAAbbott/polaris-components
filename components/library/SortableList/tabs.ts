@@ -13,7 +13,7 @@ const SortableList =
     Badge,
     Button
   } from '@shopify/polaris';
-  import { DragHandleIcon, MobileCancelIcon } from '@shopify/polaris-icons';
+  import { DragHandleIcon, XIcon } from '@shopify/polaris-icons';
   import {
     DndContext,
     closestCenter,
@@ -95,7 +95,7 @@ const SortableList =
                   console.log('Remove Item');
                 }}
               >
-                <Button icon={MobileCancelIcon} variant='monochromePlain'></Button>
+                <Button icon={XIcon} variant='monochromePlain'></Button>
               </div>
             </InlineStack>
           </InlineStack>

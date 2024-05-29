@@ -19,13 +19,7 @@ import {
   ActionList,
   Image
 } from '@shopify/polaris';
-import {
-  MobileHorizontalDotsIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-  TickIcon,
-  CancelIcon
-} from '@shopify/polaris-icons';
+import { MenuHorizontalIcon, ChevronDownIcon, ChevronUpIcon, CheckIcon, XIcon } from "@shopify/polaris-icons";
 import styles from './SetupGuide.module.css';
 
 export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
@@ -51,7 +45,7 @@ export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
                   <Button
                     onClick={() => setPopoverActive((prev) => !prev)}
                     variant='tertiary'
-                    icon={MobileHorizontalDotsIcon}
+                    icon={MenuHorizontalIcon}
                   />
                 }
               >
@@ -69,7 +63,7 @@ export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
                             paddingTop: '.05rem'
                           }}
                         >
-                          <Icon tone='subdued' source={CancelIcon} />
+                          <Icon tone='subdued' source={XIcon} />
                         </div>
                       )
                     }
@@ -99,7 +93,7 @@ export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
                 <div style={{ maxHeight: '1rem' }}>
                   <InlineStack wrap={false} gap='100'>
                     <Icon
-                      source={TickIcon}
+                      source={CheckIcon}
                       tone='subdued'
                       accessibilityLabel='Check icon to indicate completion of Setup Guide'
                     />
@@ -195,7 +189,7 @@ const SetupItem = ({
                 {loading ? (
                   <Spinner size='small' />
                 ) : complete ? (
-                  <TickIcon
+                  <CheckIcon
                     style={{
                       width: '1.25rem',
                       height: '1.25rem',

@@ -1,15 +1,15 @@
 import { Tab } from '@/types';
 
 const NavCard = `import { Card, Text, InlineStack, Icon } from '@shopify/polaris';
-import { ChevronRightIcon, OrdersIcon } from '@shopify/polaris-icons';
+import { ChevronRightIcon, OrderIcon } from '@shopify/polaris-icons';
 
 export const NavCard = () => {
   return (
-    <a href='https://example.com' target='_blank' style={{ textDecoration: 'none', color: 'inherit' }}>
+    <a href='https://example.com' rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }} target='_blank'>
       <Card>
         <InlineStack blockAlign='center' align='space-between'>
           <InlineStack align='center' gap='200'>
-            <Icon source={OrdersIcon} />
+            <Icon source={OrderIcon} />
             <Text as='p' variant='headingMd'>
               38 orders to fulfill
             </Text>

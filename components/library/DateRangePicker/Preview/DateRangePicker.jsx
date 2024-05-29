@@ -66,9 +66,7 @@ export const DateRangePicker = ({ onDateRangeSelect, value: { start, end } }) =>
       const currentRange = ranges.find((range) => {
         const { since, until } = range.period;
 
-        if (areDatesEqual(since, start) && areDatesEqual(until, end)) {
-          return true;
-        }
+        return areDatesEqual(since, start) && areDatesEqual(until, end)
       });
 
       if (currentRange) {

@@ -1,18 +1,18 @@
 import { Tab } from '@/types';
 
 const FeedbackCard = `import { Card, BlockStack, Text, Button, ButtonGroup, InlineStack } from '@shopify/polaris';
-import { CancelIcon, ThumbsDownIcon, ThumbsUpIcon } from '@shopify/polaris-icons';
+import { XIcon, ThumbsDownIcon, ThumbsUpIcon } from "@shopify/polaris-icons";
 
 export const FeedbackCard = () => {
   return (
     <Card>
       <BlockStack gap='400' align='start'>
         <BlockStack gap='200'>
-          <InlineStack align='space-between' wrap={false}>
+          <InlineStack align='space-between'>
             <Text as='h2' variant='headingMd'>
               Share your feedback
             </Text>
-            <CancelIcon width='1rem' height='1rem' style={{ cursor: 'pointer' }} />
+            <XIcon width='1rem' height='1rem' style={{ cursor: 'pointer' }} />
           </InlineStack>
           <Text as='p' variant='bodyMd' tone='subdued'>
             How would you describe your experience using the Polaris Components app?

@@ -3,7 +3,7 @@ import { ChevronRightIcon, OrderIcon } from "@shopify/polaris-icons";
 
 export const NavCard = () => {
   return (
-    <a href='https://example.com' target='_blank' style={{ textDecoration: 'none', color: 'inherit' }}>
+    <a href='https://example.com' rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }} target='_blank'>
       <Card>
         <InlineStack blockAlign='center' align='space-between'>
           <InlineStack align='center' gap='200'>
