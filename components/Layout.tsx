@@ -107,6 +107,12 @@ export const Layout = ({ children }: PropsWithChildren) => {
               icon: AppsIcon,
               selected: asPath === '/components/date-range-picker',
               onClick: () => changePage('/components/date-range-picker')
+            },
+            {
+              label: 'Media Grid',
+              icon: AppsIcon,
+              selected: asPath === '/components/media-grid',
+              onClick: () => changePage('/components/media-grid')
             }
           ]}
           action={{
