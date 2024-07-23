@@ -1,8 +1,14 @@
 import { useState, useEffect, useRef, useCallback, MouseEvent, TouchEvent } from 'react';
 import { Page, Layout, Toast, Button } from '@shopify/polaris';
-import { ChevronDownIcon, ChevronUpIcon, DragHandleIcon, DuplicateIcon } from "@shopify/polaris-icons";
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  DragHandleIcon,
+  DuplicateIcon
+} from '@shopify/polaris-icons';
 import { LiveEditor, LiveProvider } from 'react-live';
 import { PageComponent, UserEventType } from '@/types';
+import { track } from '@vercel/analytics';
 
 export const RenderComponent = ({ title, Preview, tabs, Banner, subtitle }: PageComponent) => {
   const [tab, setTab] = useState(0);
@@ -197,6 +203,7 @@ export const RenderComponent = ({ title, Preview, tabs, Banner, subtitle }: Page
                 onClick={() => {
                   navigator.clipboard.writeText(tabs[tab].content);
                   toggleActive();
+                  track('Copy File', { component: title, file: tabs[tab]?.title });
                 }}
               />
             </div>
