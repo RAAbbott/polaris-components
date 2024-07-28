@@ -30,7 +30,7 @@ export const StatBox = ({ title, value, data = [] }) => {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'end',
-              gap: 4
+              minWidth: 30
             }}
           >
             <div
@@ -38,9 +38,7 @@ export const StatBox = ({ title, value, data = [] }) => {
                 position: 'absolute',
                 top: -8,
                 left: -2,
-                zIndex: 20,
-                display: 'flex',
-                flexDirection: 'column'
+                zIndex: 20
               }}
             >
               <Text as='p' variant='headingSm'>
@@ -50,7 +48,7 @@ export const StatBox = ({ title, value, data = [] }) => {
             <Text as='h2' variant='headingLg' fontWeight='bold'>
               {value}
             </Text>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: -2 }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: -4 }}>
               {percentageChange ? (
                 percentageChange > 0 ? (
                   <ArrowUpIcon style={{ height: 12, width: 12 }} fill={'green'} />
@@ -107,7 +105,7 @@ const getPercentageChange = (start = 0, end = 0) => {
 };
 `;
 
-const Example = `import { Layout, Page, Grid, Text, BlockStack } from '@shopify/polaris';
+const Example = `import { Layout, Page, Grid, Text, BlockStack, Box } from '@shopify/polaris';
 import { StatBox } from './StatBox';
 
 export const Example = () => {
@@ -122,17 +120,19 @@ export const Example = () => {
     <Page>
       <Layout>
         <Layout.Section>
-          <BlockStack gap='100'>
-            <Text variant='headingMd'>Daily Stats Example</Text>
-            <Text variant='bodySm' tone='subdued'>
-              Shows rate of change from first entry of chart data to today
-            </Text>
-          </BlockStack>
+          <Box padding='200'>
+            <BlockStack gap='100'>
+              <Text variant='headingMd'>Daily Stats Example</Text>
+              <Text variant='bodySm' tone='subdued'>
+                Shows rate of change from first entry of chart data to today
+              </Text>
+            </BlockStack>
+          </Box>
         </Layout.Section>
         <Layout.Section>
           <Grid columns={3}>
             <Grid.Cell columnSpan={{ xs: 6, lg: 4 }}>
-              <StatBox title='Orders' value={stats.orders.at('-1')} data={stats.orders} />
+              <StatBox title='Orders' value={stats.orders.at(-1)} data={stats.orders} />
             </Grid.Cell>
             <Grid.Cell columnSpan={{ xs: 6, lg: 4 }}>
               <StatBox title='Reviews' value={stats.reviews.at(-1)} data={stats.reviews} />

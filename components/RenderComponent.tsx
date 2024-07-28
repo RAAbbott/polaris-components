@@ -285,7 +285,7 @@ export const RenderComponent = ({
 const DependencyBanner = ({ openModal }: { openModal: () => void }) => {
   return (
     <Banner tone='warning'>
-      <InlineStack align='space-between'>
+      <InlineStack align='space-between' blockAlign='center'>
         <Text variant='bodyMd' as='h4'>
           Requires external dependencies
         </Text>

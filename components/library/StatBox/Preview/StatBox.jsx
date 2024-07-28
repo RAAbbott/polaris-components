@@ -28,7 +28,7 @@ export const StatBox = ({ title, value, data = [] }) => {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'end',
-              gap: 4
+              minWidth: 30
             }}
           >
             <div
@@ -36,9 +36,7 @@ export const StatBox = ({ title, value, data = [] }) => {
                 position: 'absolute',
                 top: -8,
                 left: -2,
-                zIndex: 20,
-                display: 'flex',
-                flexDirection: 'column'
+                zIndex: 20
               }}
             >
               <Text as='p' variant='headingSm'>
@@ -48,7 +46,7 @@ export const StatBox = ({ title, value, data = [] }) => {
             <Text as='h2' variant='headingLg' fontWeight='bold'>
               {value}
             </Text>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: -2 }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: -4 }}>
               {percentageChange ? (
                 percentageChange > 0 ? (
                   <ArrowUpIcon style={{ height: 12, width: 12 }} fill={'green'} />
