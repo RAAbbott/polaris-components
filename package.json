@@ -20,6 +20,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@shopify/polaris": "^13.4.0",
     "@shopify/polaris-icons": "^9.1.0",
+    "@shopify/polaris-viz": "^14.4.0",
     "@types/node": "20.4.9",
     "@types/react": "18.2.47",
     "@types/react-dom": "18.2.7",

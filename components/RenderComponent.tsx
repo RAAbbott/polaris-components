@@ -1,5 +1,15 @@
 import { useState, useEffect, useRef, useCallback, MouseEvent, TouchEvent } from 'react';
-import { Page, Layout, Toast, Button } from '@shopify/polaris';
+import {
+  Page,
+  Layout,
+  Toast,
+  Button,
+  InlineStack,
+  Text,
+  Frame,
+  Modal,
+  Banner
+} from '@shopify/polaris';
 import {
   ChevronDownIcon,
   ChevronUpIcon,
@@ -10,12 +20,19 @@ import { LiveEditor, LiveProvider } from 'react-live';
 import { PageComponent, UserEventType } from '@/types';
 import { track } from '@vercel/analytics';
 
-export const RenderComponent = ({ title, Preview, tabs, Banner, subtitle }: PageComponent) => {
+export const RenderComponent = ({
+  title,
+  Preview,
+  tabs,
+  subtitle,
+  dependencies
+}: PageComponent) => {
   const [tab, setTab] = useState(0);
   const [maxHeight, setMaxHeight] = useState(0);
   const [height, setHeight] = useState(250);
   const [prevHeight, setPrevHeight] = useState(250);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   // State + markup for toast component
@@ -135,7 +152,7 @@ export const RenderComponent = ({ title, Preview, tabs, Banner, subtitle }: Page
     >
       <Layout>
         <Layout.Section>
-          {Banner ? <Banner /> : null}
+          {dependencies ? <DependencyBanner openModal={() => setModalOpen(true)} /> : null}
           <Preview />
         </Layout.Section>
       </Layout>
@@ -227,7 +244,53 @@ export const RenderComponent = ({ title, Preview, tabs, Banner, subtitle }: Page
           </div>
         </div>
       </div>
+
+      {/* Toast */}
       {toastMarkup}
+
+      {/* Dependency Modal */}
+      {dependencies && dependencies.length ? (
+        <Frame>
+          <Modal
+            open={modalOpen}
+            title='External Dependencies'
+            onClose={() => setModalOpen(false)}
+            primaryAction={{
+              content: 'Copy NPM command',
+              onAction: () => {
+                navigator.clipboard.writeText(`npm i ${dependencies.join(' ')}`);
+                toggleActive();
+              }
+            }}
+          >
+            <Modal.Section>
+              This component requires the following packages: <br />
+              <ul style={{ listStyleType: 'circle', paddingLeft: 20 }}>
+                {dependencies.map((dep) => {
+                  return (
+                    <li key={dep}>
+                      <code>{dep}</code>
+                    </li>
+                  );
+                })}
+              </ul>
+            </Modal.Section>
+          </Modal>
+        </Frame>
+      ) : null}
     </Page>
+  );
+};
+
+const DependencyBanner = ({ openModal }: { openModal: () => void }) => {
+  return (
+    <Banner tone='warning'>
+      <InlineStack align='space-between'>
+        <Text variant='bodyMd' as='h4'>
+          Requires external dependencies
+        </Text>
+        <Button onClick={openModal}>Learn more</Button>
+      </InlineStack>
+    </Banner>
   );
 };

@@ -1,6 +1,6 @@
 import { PropsWithChildren, useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Frame, Navigation, TopBar, useBreakpoints } from '@shopify/polaris';
+import { Badge, Frame, Navigation, TopBar, useBreakpoints } from '@shopify/polaris';
 import { AppsIcon, ChevronRightIcon, HomeIcon, ChatIcon, CodeIcon } from '@shopify/polaris-icons';
 import '@shopify/polaris/build/esm/styles.css';
 import { Analytics } from '@vercel/analytics/react';
@@ -113,6 +113,13 @@ export const Layout = ({ children }: PropsWithChildren) => {
               icon: AppsIcon,
               selected: asPath === '/components/media-grid',
               onClick: () => changePage('/components/media-grid')
+            },
+            {
+              label: 'Stat Box',
+              badge: <Badge tone='success'>New</Badge>,
+              icon: AppsIcon,
+              selected: asPath === '/components/stat-box',
+              onClick: () => changePage('/components/stat-box')
             }
           ]}
           action={{

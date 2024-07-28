@@ -13,6 +13,7 @@ export type PageComponent = {
   subtitle?: string;
   Banner?: () => ReactNode; // Optional banner exported from components to provide context (e.g. external deps)
   contributor?: string;
+  dependencies?: string[];
 };
 
 export enum UserEventType {
