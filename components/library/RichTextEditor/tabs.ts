@@ -230,7 +230,67 @@ export function Example() {
 }
 `;
 
+const CSSFile = `/* In Remix - simply import this file from within RichTextEditor.tsx */
+/* In Next.js - import this file from within /pages/_app.tsx */
+.quill {
+	background-color: var(--p-color-input-bg-surface);
+	border: var(--p-border-width-0165) solid var(--p-color-input-border);
+	border-top-color: #898f94;
+	border-radius: var(--p-border-radius-200);
+	margin-bottom: 3px;
+}
+
+.quill--disabled {
+	color: var(--p-color-text-disabled);
+	background-color: #F2F2F2;
+	border: 1px solid #F2F2F2;
+}
+
+.quill .ql-toolbar.ql-snow {
+	border: none;
+	border-bottom: 1px solid #ccc;
+}
+
+.quill .ql-container.ql-snow {
+	border: none;
+	font-family: var(--p-font-family-sans);
+}
+
+.quill .ql-container.ql-snow .ql-editor {
+	min-height: 150px;
+	max-height: 400px;
+}
+
+.quill--disabled .ql-toolbar .ql-stroke {
+	fill: none !important;
+	stroke: #aaa !important;
+}
+
+.quill--disabled .ql-toolbar .ql-fill {
+	fill: #aaa !important;
+	stroke: none !important;
+}
+
+.quill--disabled .ql-toolbar .ql-picker {
+	color: #aaa !important;
+}
+
+.quill--error {
+	border: var(--p-border-width-0165) solid var(--p-color-border-critical-secondary);
+	background-color: var(--p-color-bg-surface-critical);
+}
+
+.quill .ql-editor.ql-blank::before {
+	font-style: normal;
+}
+
+.quill--disabled .ql-editor.ql-blank::before {
+	color: var(--p-color-text-disabled)
+}
+`;
+
 export const tabs: Tab[] = [
   { title: 'Example Usage', content: Example },
   { title: 'RichTextEditor.tsx', content: RichTextEditor },
+  { title: 'rich-text-editor.css', content: CSSFile, lang: "css" },
 ];
