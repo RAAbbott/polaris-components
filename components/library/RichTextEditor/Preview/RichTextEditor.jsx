@@ -16,7 +16,7 @@ const defaultModuleOptions = {
 };
 
 export function RichTextEditor({
-  bounds,
+  bounds = '.quill',
   defaultValue,
   formats,
   id,
@@ -89,5 +89,3 @@ export function RichTextEditor({
     </Box>
   );
 }
-
-// Maybe down here you can explain some changes needed for Remix/SSR

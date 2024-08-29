@@ -78,9 +78,9 @@ export function Example() {
                     <BlockStack gap="100">
                             <Text as="p">Remix ClientOnly Fallback - loading...</Text>
                             <div className="quill">
-                                <Box padding="300" paddingBlockStart="400" paddingBlockEnd="1000"><SkeletonBodyText lines={6} /></Box>
+                                <Box padding="300" paddingBlockStart="400" paddingBlockEnd="1600"><SkeletonBodyText lines={6} /></Box>
                             </div>
-                        </BlockStack>
+                    </BlockStack>
                 </BlockStack>
             </Card>
         </Page>

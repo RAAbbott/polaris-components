@@ -18,7 +18,7 @@ const defaultModuleOptions = {
 };
 
 export function RichTextEditor({
-  bounds,
+  bounds = '.quill',
   defaultValue,
   formats,
   id,
@@ -170,6 +170,13 @@ export function Example() {
                             }
                         }
                     />
+                    {/* Example ClientOnly fallback for Remix or other SSR environments */}
+                    <BlockStack gap="100">
+                      <Text as="p">Remix ClientOnly Fallback - loading...</Text>
+                      <div className="quill">
+                          <Box padding="300" paddingBlockStart="400" paddingBlockEnd="1600"><SkeletonBodyText lines={6} /></Box>
+                      </div>
+                    </BlockStack>
                 </BlockStack>
             </Card>
         </Page>
@@ -194,6 +201,9 @@ export function RichTextEditor(props: RichTextEditorProps): JSX.Element;
 const CSSFile = `/* In Remix - simply import this file from within RichTextEditor.jsx */
 /* In Next.js - import this file from within /pages/_app.tsx */
 
+/* In Remix - you may want to put this 1 style into a global CSS file or in a separate CSS file
+imported to the file referencing the RTE component, so it can also be applied to the ClientOnly fallback.
+See the Remix usage example to see how this might be used */
 .quill {
 	background-color: var(--p-color-input-bg-surface);
 	border: var(--p-border-width-0165) solid var(--p-color-input-border);
