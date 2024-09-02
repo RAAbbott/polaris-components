@@ -183,21 +183,6 @@ export function Example() {
     );
 }`;
 
-const RichTextEditorTypes = `/* Optional type declaration file to help with Quill property types */
-import { ReactQuillProps } from 'react-quill';
-
-type ReducedQuillProps = Omit<ReactQuillProps, 'readOnly' | 'className' | 'theme' | 'children' | 'style' | 'tabIndex' | 'scrollingContainer'>;
-
-export interface RichTextEditorProps extends ReducedQuillProps {
-    label: string;
-    labelHidden?: boolean;
-    disabled?: boolean;
-    error?: string | boolean;
-}
-
-export function RichTextEditor(props: RichTextEditorProps): JSX.Element;
-`
-
 const CSSFile = `/* In Remix - simply import this file from within RichTextEditor.jsx */
 /* In Next.js - import this file from within /pages/_app.tsx */
 
@@ -310,7 +295,6 @@ export function ExampleRemix() {
 export const tabs: Tab[] = [
   { title: 'Example Usage', content: Example },
   { title: 'RichTextEditor.jsx', content: RichTextEditor },
-  { title: 'RichTextEditor.d.ts', content: RichTextEditorTypes },
-  { title: 'rich-text-editor.css', content: CSSFile, lang: "css" },
-  { title: 'Example Usage (Remix)', content: ExampleRemix },
+  { title: 'RichTextEditor.css', content: CSSFile, lang: 'css' },
+  { title: 'Example Usage (Remix)', content: ExampleRemix }
 ];
