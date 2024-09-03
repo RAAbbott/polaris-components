@@ -120,6 +120,13 @@ export const Layout = ({ children }: PropsWithChildren) => {
               icon: AppsIcon,
               selected: asPath === '/components/stat-box',
               onClick: () => changePage('/components/stat-box')
+            },
+            {
+              label: 'Rich Text Editor',
+              badge: <Badge tone='success'>New</Badge>,
+              icon: AppsIcon,
+              selected: asPath === '/components/rich-text-editor',
+              onClick: () => changePage('/components/rich-text-editor')
             }
           ]}
           action={{
