@@ -6,9 +6,10 @@ import {
   Button,
   InlineStack,
   Text,
-  Frame,
   Modal,
-  Banner
+  Banner,
+  Box,
+  Link
 } from '@shopify/polaris';
 import {
   ChevronDownIcon,
@@ -25,7 +26,8 @@ export const RenderComponent = ({
   Preview,
   tabs,
   subtitle,
-  dependencies
+  dependencies,
+  contributor
 }: PageComponent) => {
   const [tab, setTab] = useState(0);
   const [maxHeight, setMaxHeight] = useState(0);
@@ -137,18 +139,18 @@ export const RenderComponent = ({
       subtitle={subtitle}
       // Considering adding a metadata text that shows the contributor
       // username and links to their GitHub. Code below if I decide to add it.
-      // titleMetadata={
-      //   contributor ? (
-      //     <Box paddingBlockStart='100'>
-      //       <Text as='p' variant='bodySm' tone='subdued'>
-      //         Contributed by{' '}
-      //         <Link url={`https://www.github.com/${contributor}`} target='_blank'>
-      //           {contributor}
-      //         </Link>
-      //       </Text>
-      //     </Box>
-      //   ) : null
-      // }
+      titleMetadata={
+        contributor ? (
+          <Box paddingBlockStart='100'>
+            <Text as='p' variant='bodySm' tone='subdued'>
+              Contributed by{' '}
+              <Link url={`https://www.github.com/${contributor}`} target='_blank'>
+                {contributor}
+              </Link>
+            </Text>
+          </Box>
+        ) : null
+      }
     >
       <Layout>
         <Layout.Section>
@@ -250,33 +252,31 @@ export const RenderComponent = ({
 
       {/* Dependency Modal */}
       {dependencies && dependencies.length ? (
-        <Frame>
-          <Modal
-            open={modalOpen}
-            title='External Dependencies'
-            onClose={() => setModalOpen(false)}
-            primaryAction={{
-              content: 'Copy NPM command',
-              onAction: () => {
-                navigator.clipboard.writeText(`npm i ${dependencies.join(' ')}`);
-                toggleActive();
-              }
-            }}
-          >
-            <Modal.Section>
-              This component requires the following packages: <br />
-              <ul style={{ listStyleType: 'circle', paddingLeft: 20 }}>
-                {dependencies.map((dep) => {
-                  return (
-                    <li key={dep}>
-                      <code>{dep}</code>
-                    </li>
-                  );
-                })}
-              </ul>
-            </Modal.Section>
-          </Modal>
-        </Frame>
+        <Modal
+          open={modalOpen}
+          title='External Dependencies'
+          onClose={() => setModalOpen(false)}
+          primaryAction={{
+            content: 'Copy NPM command',
+            onAction: () => {
+              navigator.clipboard.writeText(`npm i ${dependencies.join(' ')}`);
+              toggleActive();
+            }
+          }}
+        >
+          <Modal.Section>
+            This component requires the following packages: <br />
+            <ul style={{ listStyleType: 'circle', paddingLeft: 20 }}>
+              {dependencies.map((dep) => {
+                return (
+                  <li key={dep}>
+                    <code>{dep}</code>
+                  </li>
+                );
+              })}
+            </ul>
+          </Modal.Section>
+        </Modal>
       ) : null}
     </Page>
   );
