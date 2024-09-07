@@ -7,7 +7,7 @@ export const PricingCard = ({ title, description, price, features, featuredText,
     <div
       style={{
         width: "18rem",
-        boxShadow: featuredText ? "0px 0px 15px 4px #CDFEE1" : "",
+        boxShadow: featuredText ? "0px 0px 15px 4px #CDFEE1" : "none",
         borderRadius: ".75rem",
         position: "relative",
         zIndex: "0",
