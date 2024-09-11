@@ -162,7 +162,7 @@ export const RenderComponent = ({
 
       {/* Read-only code editor */}
       <div
-        className={`w-screen fixed right-0 bottom-0 pl-[240px] max-h-[80%] max-[768px]:pl-0`}
+        className={`code-editor w-screen fixed right-0 bottom-0 pl-[240px] max-h-[80%] max-[768px]:pl-0`}
         ref={ref}
       >
         <div className='relative'>
