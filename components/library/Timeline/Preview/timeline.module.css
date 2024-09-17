@@ -1,3 +1,5 @@
+/* You may need to tweak the three z-index values in your app, if you find content is hiding */
+
 .timeline-icon {
 	position: relative;
 	display: flex;
