@@ -26,7 +26,7 @@ export function Example() {
     },
     {
       tone: 'base',
-      icon: <img src="https://cdn.shopify.com/app-store/listing_images/f3793a8b472f4ecf5949e302f9361b5a/icon/CNyR9KPsuvUCEAE=.png" width="16" height="16" />,
+      icon: <img src="/timeline-icon_ricemill.png" width="16" height="16" />,
       url: undefined,
       timelineEvent: (
         <>
@@ -78,7 +78,7 @@ export function Example() {
     {
       tone: 'base',
       url: undefined,
-      icon: <img src="https://cdn-icons-png.flaticon.com/512/5957/5957125.png" width="16" height="16" />,
+      icon: <img src="/timeline-icon_loyalty.png" width="16" height="16" />,
       timelineEvent: (
         <>
           Customer redeemed 50 reward points on an order <Badge>#1237</Badge> (LoyaltyPlus)
@@ -89,7 +89,7 @@ export function Example() {
     {
       tone: 'base',
       url: undefined,
-      icon: <img src="https://cdn-icons-png.flaticon.com/512/5957/5957125.png" width="16" height="16" />,
+      icon: <img src="/timeline-icon_loyalty.png" width="16" height="16" />,
       timelineEvent: (
         <>
           Customer earned 100 reward points for subscribing to your mailing list. (LoyaltyPlus)
@@ -170,7 +170,7 @@ export function Example() {
     {
       tone: 'critical',
       url: undefined,
-      icon: <img src="https://play-lh.googleusercontent.com/qmKKojzGsv7QCdLm3QM24f3_XExjfp_P0-0ZZ1a3tZPvrFbGTCCctGX8JSmgYu8bHxPb" width="16" height="16" />,
+      icon: <img src="/timeline-icon_security.png" width="16" height="16" />,
       timelineEvent: (
         <>
           Customer flagged for fraud. (Securité)
@@ -181,7 +181,7 @@ export function Example() {
     {
       tone: 'base',
       url: undefined,
-      icon: <img src="https://cdn.shopify.com/app-store/listing_images/f3793a8b472f4ecf5949e302f9361b5a/icon/CNyR9KPsuvUCEAE=.png" width="16" height="16" />,
+      icon: <img src="/timeline-icon_ricemill.png" width="16" height="16" />,
       timelineEvent: (
         <>
           Customer updated their shipping address. (Ricemill)

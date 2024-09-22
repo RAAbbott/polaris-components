@@ -1,4 +1,5 @@
 import { BlockStack, Box, Icon, InlineGrid, InlineStack, Link, Text } from "@shopify/polaris";
+import { Fragment } from "react"
 import { AlertCircleIcon, CheckCircleIcon, ChevronRightIcon, CircleChevronRightIcon } from "@shopify/polaris-icons";
 import styles from './timeline.module.css';
 
@@ -31,9 +32,9 @@ export default function Timeline({ items }) {
           const bulletIcon = getBulletIconFromTone(item.tone);
 
           return (
-            <>
+            <Fragment key={index}>
               {showDate && (
-                <InlineGrid key={index} gap="200" columns="30px auto 90px">
+                <InlineGrid gap="200" columns="30px auto 90px">
                   <div>
                     &nbsp;
                   </div>
@@ -49,7 +50,7 @@ export default function Timeline({ items }) {
 
               )}
 
-              <InlineGrid key={index} gap="200" columns="30px auto 90px" alignItems="center">
+              <InlineGrid gap="200" columns="30px auto 90px" alignItems="center">
                 <div className={styles['timeline-icon']}>
                   {item.tone === 'base' || !bulletIcon ? (
                     <div className={styles['timeline-icon-base']}>
@@ -61,9 +62,7 @@ export default function Timeline({ items }) {
                 </div>
                 <Box className={styles['timeline-event-description']}>
                   <InlineStack gap="200" wrap={false} blockAlign="center">
-                    {item.icon && (
-                      <Box>{item.icon}</Box>
-                    )}
+                    {item.icon}
                     {item.url ? (
                       <Link url={item.url} monochrome removeUnderline>
                         <InlineStack gap="0" wrap={false} blockAlign="start">
@@ -80,7 +79,7 @@ export default function Timeline({ items }) {
                   {item.timestamp.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })}
                 </Text>
               </InlineGrid>
-            </>
+            </Fragment>
           );
         }) : (
           <Text as="p">No timeline events available.</Text>
