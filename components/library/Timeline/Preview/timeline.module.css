@@ -1,0 +1,54 @@
+/* You may need to tweak the three z-index values in your app, if you find content is hiding */
+
+.timeline-icon {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 24px;
+	width: 24px;
+	margin-right: 10px;
+}
+
+.timeline-icon-polaris-icon {
+	z-index: 1;
+}
+
+.timeline-icon:before {
+	content: '';
+	position: absolute;
+	top: -40px;
+	bottom: -30px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	background-color: #dfe3e8;
+	z-index: 0;
+}
+
+.timeline-icon-base {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 16px;
+	height: 16px;
+	background-color: var(--p-color-border);
+	border-radius: 3px;
+	z-index: 1;
+}
+
+.timeline-icon-base-inner {
+	width: 8px;
+	height: 8px;
+	background-color: var(--p-color-icon);
+	border-radius: 3px;
+}
+
+.timeline-event-description .Polaris-Icon {
+	display: inline;
+	margin: 0;
+}
+
+a:hover .timeline-event-link-main {
+	text-decoration: underline !important;
+}
