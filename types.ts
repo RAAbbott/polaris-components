@@ -12,7 +12,7 @@ export type PageComponent = {
   title: string;
   subtitle?: string;
   Banner?: () => ReactNode; // Optional banner exported from components to provide context (e.g. external deps)
-  contributor?: string;
+  contributors?: Contributor[];
   dependencies?: string[];
 };
 
@@ -20,3 +20,13 @@ export enum UserEventType {
   TOUCH = 'touch',
   MOUSE = 'mouse'
 }
+
+export enum Platform {
+  TWITTER = 'twitter',
+  GITHUB = 'github'
+}
+
+export type Contributor = {
+  username: string;
+  platform: Platform;
+};

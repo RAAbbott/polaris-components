@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, MouseEvent, TouchEvent } from 'react';
+import { useState, useEffect, useRef, useCallback, MouseEvent, TouchEvent, Fragment } from 'react';
 import {
   Page,
   Layout,
@@ -18,8 +18,17 @@ import {
   DuplicateIcon
 } from '@shopify/polaris-icons';
 import { LiveEditor, LiveProvider } from 'react-live';
-import { PageComponent, UserEventType } from '@/types';
+import { Contributor, PageComponent, Platform, UserEventType } from '@/types';
 import { track } from '@vercel/analytics';
+
+const getContributorLink = ({ username, platform }: Contributor) => {
+  switch (platform) {
+    case Platform.TWITTER:
+      return `https://www.x.com/${username}`;
+    case Platform.GITHUB:
+      return `https://www.github.com/${username}`;
+  }
+};
 
 export const RenderComponent = ({
   title,
@@ -27,7 +36,7 @@ export const RenderComponent = ({
   tabs,
   subtitle,
   dependencies,
-  contributor
+  contributors
 }: PageComponent) => {
   const [tab, setTab] = useState(0);
   const [maxHeight, setMaxHeight] = useState(0);
@@ -140,13 +149,22 @@ export const RenderComponent = ({
       // Considering adding a metadata text that shows the contributor
       // username and links to their GitHub. Code below if I decide to add it.
       titleMetadata={
-        contributor ? (
+        contributors ? (
           <Box paddingBlockStart='100'>
             <Text as='p' variant='bodySm' tone='subdued'>
               Contributed by{' '}
-              <Link url={`https://www.github.com/${contributor}`} target='_blank'>
-                {contributor}
-              </Link>
+              {contributors.map((contributor, idx) => (
+                <Fragment key={contributor.username}>
+                  {idx > 0 && ', '}
+                  <Link
+                    key={contributor.username}
+                    url={getContributorLink(contributor)}
+                    target='_blank'
+                  >
+                    {contributor.username}
+                  </Link>
+                </Fragment>
+              ))}
             </Text>
           </Box>
         ) : null
@@ -155,14 +173,16 @@ export const RenderComponent = ({
       <Layout>
         <Layout.Section>
           {dependencies ? <DependencyBanner openModal={() => setModalOpen(true)} /> : null}
-          <Preview />
+          <div className='relative z-0'>
+            <Preview />
+          </div>
         </Layout.Section>
       </Layout>
       <div className='pb-96'></div>
 
       {/* Read-only code editor */}
       <div
-        className={`code-editor w-screen fixed right-0 bottom-0 pl-[240px] max-h-[80%] max-[768px]:pl-0`}
+        className={`w-screen fixed right-0 bottom-0 pl-[240px] max-h-[80%] max-[768px]:pl-0`}
         ref={ref}
       >
         <div className='relative'>

@@ -122,7 +122,6 @@ export const Layout = ({ children }: PropsWithChildren) => {
             },
             {
               label: 'Rich Text Editor',
-              badge: <Badge tone='success'>New</Badge>,
               icon: AppsIcon,
               selected: asPath === '/components/rich-text-editor',
               onClick: () => changePage('/components/rich-text-editor')
@@ -133,6 +132,13 @@ export const Layout = ({ children }: PropsWithChildren) => {
               icon: AppsIcon,
               selected: asPath === '/components/timeline',
               onClick: () => changePage('/components/timeline')
+            },
+            {
+              label: 'Knob',
+              badge: <Badge tone='success'>New</Badge>,
+              icon: AppsIcon,
+              selected: asPath === '/components/knob',
+              onClick: () => changePage('/components/knob')
             }
           ]}
           action={{

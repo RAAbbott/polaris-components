@@ -1,6 +1,8 @@
 // Index files for each component should export the tabs, preview, and title
 
-export { tabs } from "./tabs";
-export { Preview } from "./Preview";
-export const title = "Pricing Card";
-export const contributor = "RAAbbott"
+import { Platform } from '@/types';
+
+export { tabs } from './tabs';
+export { Preview } from './Preview';
+export const title = 'Pricing Card';
+export const contributors = [{ username: 'devwithalex', platform: Platform.TWITTER }];
