@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Page, Layout, Card, InlineStack, Text, Badge } from '@shopify/polaris';
-import Knob from './Knob';
+import { Knob } from './Knob';
 
 export function Example() {
   const [selected, setSelected] = useState(false);

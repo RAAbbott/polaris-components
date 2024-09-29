@@ -12,7 +12,7 @@ import styles from './Knob.module.css';
  * @param {KnobProps} props - The props for the Knob component
  * @returns {JSX.Element} The rendered Knob component
  */
-export default function Knob({ ariaLabel, selected, onClick }) {
+export const Knob = ({ ariaLabel, selected, onClick }) => {
   return (
     <button
       id=':rgi:'
@@ -26,4 +26,4 @@ export default function Knob({ ariaLabel, selected, onClick }) {
       <div className={`${styles.knob} ${selected && styles.knob_on}`}></div>
     </button>
   );
-}
+};

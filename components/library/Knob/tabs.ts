@@ -2,7 +2,7 @@ import { Tab } from '@/types';
 
 const Example = `import { useState } from 'react';
 import { Page, Layout, Card, InlineStack, Text, Badge } from '@shopify/polaris';
-import Knob from './Knob';
+import { Knob } from './Knob';
 
 export function Example() {
   const [selected, setSelected] = useState(false);
@@ -49,7 +49,7 @@ const Knob = `import styles from './Knob.module.css';
  * @param {KnobProps} props - The props for the Knob component
  * @returns {JSX.Element} The rendered Knob component
  */
-export default function Knob({ ariaLabel, selected, onClick }) {
+export const Knob = ({ ariaLabel, selected, onClick }) => {
   return (
     <button
       id=':rgi:'
@@ -63,7 +63,7 @@ export default function Knob({ ariaLabel, selected, onClick }) {
       <div className={\`$\{styles.knob} $\{selected && styles.knob_on}\`}></div>
     </button>
   );
-}
+};
 `;
 
 const CSS = `.track {
