@@ -103,12 +103,6 @@ export const Layout = ({ children }: PropsWithChildren) => {
               onClick: () => changePage('/components/accordion')
             },
             {
-              label: 'Step Accordion',
-              icon: AppsIcon,
-              selected: asPath === '/components/step-accordion',
-              onClick: () => changePage('/components/step-accordion')
-            },
-            {
               label: 'Date Range Picker',
               icon: AppsIcon,
               selected: asPath === '/components/date-range-picker',
