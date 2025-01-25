@@ -18,6 +18,7 @@
     "@dnd-kit/modifiers": "^7.0.0",
     "@dnd-kit/sortable": "^8.0.0",
     "@dnd-kit/utilities": "^3.2.2",
+    "@shopify/app-bridge-react": "^4.1.5",
     "@shopify/polaris": "^13.4.0",
     "@shopify/polaris-icons": "^9.1.0",
     "@shopify/polaris-viz": "^14.4.0",

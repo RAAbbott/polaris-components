@@ -467,6 +467,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shopify/app-bridge-react@npm:^4.1.5":
+  version: 4.1.5
+  resolution: "@shopify/app-bridge-react@npm:4.1.5"
+  dependencies:
+    "@shopify/app-bridge-types": "npm:0.0.15"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: 762f6c085ec9c4b3ca7f1bfea462b7c01fc0c576f21f51095ad2ce669c29d4a75ff6f061fb064984524bd74739b05dd145d3bf78636b58c616449af773071605
+  languageName: node
+  linkType: hard
+
+"@shopify/app-bridge-types@npm:0.0.15":
+  version: 0.0.15
+  resolution: "@shopify/app-bridge-types@npm:0.0.15"
+  checksum: 9ef2c9461a9755e8d23a9ff94f3884ffd47e494ce36410448fdbc82de800a984c88c97e007d061e6e18a5d94f13908698dcc1ddcc78ec23a4216d38648914a9a
+  languageName: node
+  linkType: hard
+
 "@shopify/polaris-icons@npm:^9.1.0, @shopify/polaris-icons@npm:^9.3.0":
   version: 9.3.0
   resolution: "@shopify/polaris-icons@npm:9.3.0"
@@ -4040,6 +4059,7 @@ __metadata:
     "@dnd-kit/modifiers": "npm:^7.0.0"
     "@dnd-kit/sortable": "npm:^8.0.0"
     "@dnd-kit/utilities": "npm:^3.2.2"
+    "@shopify/app-bridge-react": "npm:^4.1.5"
     "@shopify/polaris": "npm:^13.4.0"
     "@shopify/polaris-icons": "npm:^9.1.0"
     "@shopify/polaris-viz": "npm:^14.4.0"
