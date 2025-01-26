@@ -3,7 +3,7 @@ import { ReviewBanner } from './ReviewBanner';
 
 export function Example() {
   return (
-    <Page narrowWidth>
+    <Page>
       <Layout>
         <Layout.Section>
           <ReviewBanner
@@ -18,6 +18,7 @@ export function Example() {
               // - Record analytics
               // - Send slack notifications like `${shopName} clicked on review banner: ${rating} stars`
             }}
+            onClose={() => console.log('Handle onClose')}
           />
         </Layout.Section>
       </Layout>

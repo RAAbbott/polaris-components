@@ -5,28 +5,33 @@ import { ReviewBanner } from './ReviewBanner';
 
 export function Example() {
   return (
-    <Page narrowWidth>
+    <Page>
       <Layout>
         <Layout.Section>
           <ReviewBanner
             title='How was your experience?'
             description='Click below to rate us on shopify app store'
             onReview={(rating) => {
+              // Handle the rating (1-5) here
               console.log(rating);
-              // redirect user to the review page, you can also record the rating in your analytics
+              // You can:
+              // - Hide the banner
+              // - Redirect to app store
+              // - Record analytics
+              // - Send slack notifications like \`\${shopName} clicked on review banner: \${rating} stars\`
             }}
+            onClose={() => console.log('Handle onClose')}
           />
         </Layout.Section>
       </Layout>
     </Page>
   );
-}
-
-`;
+}`;
 
 const ReviewBanner = `
 import { useState } from 'react';
-import { Card, BlockStack, Text } from '@shopify/polaris';
+import { Card, BlockStack, Text, InlineStack, Button } from '@shopify/polaris';
+import { XIcon } from '@shopify/polaris-icons';
 
 /**
  * A banner component that allows users to submit reviews using a 5-star rating system.
@@ -34,17 +39,26 @@ import { Card, BlockStack, Text } from '@shopify/polaris';
  * @param {string} props.title - The title text to display in the banner
  * @param {string} props.description - The description text to display below the title
  * @param {Function} props.onReview - Callback function that receives the selected rating (1-5)
+ * @param {Function} props.onClose - Callback function that closes the banner
  * @returns {JSX.Element} A card containing the review banner
  */
-export function ReviewBanner({ title, description, onReview }) {
+export function ReviewBanner({
+  title = 'How was your experience?',
+  description = 'Click below to rate us on shopify app store',
+  onReview,
+  onClose
+}) {
   return (
     <Card>
       <BlockStack gap='400'>
         <BlockStack gap='200'>
-          <Text as='p' variant='bodyLg' fontWeight='medium'>
-            {title}
-          </Text>
-          <Text as='p' variant='bodySm'>
+          <InlineStack align='space-between' blockAlign='center'>
+            <Text as='h3' variant='headingMd'>
+              {title}
+            </Text>
+            <Button icon={XIcon} variant='tertiary' onClick={onClose} />
+          </InlineStack>
+          <Text as='p' variant='bodyMd' tone='subdued'>
             {description}
           </Text>
         </BlockStack>
@@ -96,7 +110,7 @@ function ReviewStars({ onChange }) {
  */
 function StarIcon({ filled, id }) {
   return (
-    <svg width='30' height='30' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='20' height='20' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
       <defs>
         <linearGradient id={id} x1='0%' y1='0%' x2='100%' y2='100%'>
           <stop
@@ -126,8 +140,7 @@ function StarIcon({ filled, id }) {
       />
     </svg>
   );
-}
-`;
+}`;
 
 export const tabs: Tab[] = [
   { title: 'Example Usage', content: Example },
