@@ -146,6 +146,13 @@ export const Layout = ({ children }: PropsWithChildren) => {
               badge: <Badge tone='success'>New</Badge>,
               selected: asPath === '/components/review-banner',
               onClick: () => changePage('/components/review-banner')
+            },
+            {
+              label: 'Sortable Table',
+              icon: AppsIcon,
+              badge: <Badge tone='success'>New</Badge>,
+              selected: asPath === '/components/sortable-table',
+              onClick: () => changePage('/components/sortable-table')
             }
           ]}
           action={{
