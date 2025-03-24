@@ -1783,16 +1783,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enrich-polaris-component@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "enrich-polaris-component@npm:0.0.2"
+"enrich-polaris-component@npm:0.0.4":
+  version: 0.0.4
+  resolution: "enrich-polaris-component@npm:0.0.4"
   dependencies:
     "@immutabl3/to-style": "npm:^2.2.0"
     dom-css: "npm:^2.1.0"
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: f358b91904513c33552d09100c1052bd8de3aab8c976e19dbdef8e152a13c14d334912c32761d8826f91942c038005190d0b69d74ba52b681cdb4dd945b047e1
+  checksum: 148b97ce0bca9f51fadfafd01141d2583c998075775845ec66ccc778efa5d023b5d4741ffa3824efb4364fbc0a914c6cf3a33c78999982144445a7c390e0fd27
   languageName: node
   linkType: hard
 
@@ -4095,7 +4095,7 @@ __metadata:
     "@types/react-dom": "npm:18.2.7"
     "@vercel/analytics": "npm:^1.1.1"
     autoprefixer: "npm:10.4.14"
-    enrich-polaris-component: "npm:^0.0.2"
+    enrich-polaris-component: "npm:0.0.4"
     eslint: "npm:8.46.0"
     eslint-config-next: "npm:13.4.13"
     jsx-to-string: "npm:^1.4.0"

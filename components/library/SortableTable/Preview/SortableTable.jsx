@@ -2,12 +2,8 @@ import { useCallback, useState } from 'react';
 import {
   BlockStack,
   Card,
-  ResourceList,
   Text,
-  ResourceItem,
-  Avatar,
   Box,
-  InlineStack,
   Badge,
   Button,
   IndexTable,
@@ -109,8 +105,8 @@ const SortableRow = ({ id, title, status, index }) => {
 
   return (
     <SortableIndexTableRow
-      // id={id} // Note: No point passing an id prop here, as it will be set automatically by the 'enrichPolarisComponent' wrapper
       // Original props that are passed to the original component:
+      id={`table-row-${id}`} // Optional, will be generated automatically if not passed
       key={id}
       position={index}
       // New props that couldn't be set on the original component:

@@ -4,7 +4,7 @@ import { Platform } from '@/types';
 
 export { tabs } from './tabs';
 export { Preview } from './Preview';
-export const title = 'Sortable List';
+export const title = 'Sortable Table';
 export const contributors = [{ username: '_edlaver', platform: Platform.TWITTER }];
 export const dependencies = [
   '@dnd-kit/core',

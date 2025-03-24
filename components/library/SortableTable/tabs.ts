@@ -1,16 +1,11 @@
 import { Tab } from '@/types';
 
-const SortableTable =
-  `import { useCallback, useState } from 'react';
+const SortableTable = `import { useCallback, useState } from 'react';
 import {
   BlockStack,
   Card,
-  ResourceList,
   Text,
-  ResourceItem,
-  Avatar,
   Box,
-  InlineStack,
   Badge,
   Button,
   IndexTable,
@@ -111,9 +106,9 @@ const SortableRow = ({ id, title, status, index }) => {
   };
 
   return (
-    <SortableIndexTableRow
-      // id={id} // Note: No point passing an id prop here, as it will be set automatically by the 'enrichPolarisComponent' wrapper
+    <SortableIndexTableRow      
       // Original props that are passed to the original component:
+      id={\`table-row-\${id}\`}
       key={id}
       position={index}
       // New props that couldn't be set on the original component:
@@ -137,9 +132,7 @@ const SortableRow = ({ id, title, status, index }) => {
       <IndexTable.Cell>{title}</IndexTable.Cell>
       <IndexTable.Cell>
         <Badge tone={tone} size='small'>
-          {` +
-  '`${status.charAt(0).toUpperCase()}${status.slice(1)}`' +
-  `}
+          {\`\${status.charAt(0).toUpperCase()}\${status.slice(1)}\`}
         </Badge>
       </IndexTable.Cell>
       <IndexTable.Cell>
