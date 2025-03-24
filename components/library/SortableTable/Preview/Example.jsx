@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Page, Layout } from '@shopify/polaris';
-import { SortableList } from './SortableList';
+import { SortableTable } from './SortableTable';
 
 export const Example = () => {
   const [items, setItems] = useState([
@@ -15,7 +15,7 @@ export const Example = () => {
     <Page narrowWidth>
       <Layout>
         <Layout.Section>
-          <SortableList items={items} setItems={setItems} />
+          <SortableTable items={items} setItems={setItems} />
         </Layout.Section>
       </Layout>
     </Page>

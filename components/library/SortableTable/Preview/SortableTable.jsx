@@ -1,7 +1,4 @@
-import { Tab } from '@/types';
-
-const SortableTable =
-  `import { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   BlockStack,
   Card,
@@ -137,9 +134,7 @@ const SortableRow = ({ id, title, status, index }) => {
       <IndexTable.Cell>{title}</IndexTable.Cell>
       <IndexTable.Cell>
         <Badge tone={tone} size='small'>
-          {` +
-  '`${status.charAt(0).toUpperCase()}${status.slice(1)}`' +
-  `}
+          {`${status.charAt(0).toUpperCase()}${status.slice(1)}`}
         </Badge>
       </IndexTable.Cell>
       <IndexTable.Cell>
@@ -236,40 +231,4 @@ export const SortableTable = ({ items, setItems }) => {
       </BlockStack>
     </Card>
   );
-}; 
-`;
-
-const SortableTableCss = `/* If using CSS modules in Remix, make sure you have configured CSS bundling (https://remix.run/docs/en/main/styling/bundling) */
-
-`;
-
-const Example = `import { useState } from 'react';
-import { Page, Layout } from '@shopify/polaris';
-import { SortableTable } from './SortableTable';
-
-export const Example = () => {
-  const [items, setItems] = useState([
-    { id: 1, title: 'T-Shirt', status: 'active' },
-    { id: 2, title: 'Skateboard', status: 'active' },
-    { id: 3, title: 'Snowboard', status: 'archived' },
-    { id: 4, title: 'Ultimate Snowboard', status: 'active' },
-    { id: 5, title: 'Mechanical Pencil', status: 'draft' }
-  ]);
-
-  return (
-    <Page narrowWidth>
-      <Layout>
-        <Layout.Section>
-          <SortableTable items={items} setItems={setItems} />
-        </Layout.Section>
-      </Layout>
-    </Page>
-  );
 };
-`;
-
-export const tabs: Tab[] = [
-  { title: 'Example Usage', content: Example },
-  { title: 'SortableTable.jsx', content: SortableTable },
-  { title: 'SortableTable.module.css', content: SortableTableCss, lang: 'css' }
-];

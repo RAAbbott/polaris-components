@@ -180,6 +180,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@immutabl3/to-style@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@immutabl3/to-style@npm:2.2.0"
+  dependencies:
+    "@immutabl3/utils": "npm:^1.1.2"
+  checksum: e3ed6b798c2a775753e7ff1812b3b7893daedb48b266661f64e3a76bed3be249a5b311ce4253c264ee3a97f9874368b00d7432e2bdcc336e841a79d7f4b38ce1
+  languageName: node
+  linkType: hard
+
+"@immutabl3/utils@npm:^1.1.2":
+  version: 1.1.4
+  resolution: "@immutabl3/utils@npm:1.1.4"
+  checksum: 705537cac17911ef4976236da9ebc9970613cdfed73cc099d28d5e5a788e0649214a00dafdb611b3269427f659de4022d7f022d1602b6124649fbd2ee9a76b89
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -791,6 +807,13 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: 51fb26cd678f914e13287e886da2d7021f8c2bc0ccc95e03d3e0447ee278dd3b40b9c57dc222acd5881adcf26f3edc40901a4953403232129e3876793cd17386
+  languageName: node
+  linkType: hard
+
+"add-px-to-style@npm:1.0.0":
+  version: 1.0.0
+  resolution: "add-px-to-style@npm:1.0.0"
+  checksum: d05d0e3242360e296b5b244d1bfbb946a06338653685af95962291da39ee6db9b33ccc2299a5a0ebef8fde62d39b085997b0b76d4c6098f4c164e539afa8d0f4
   languageName: node
   linkType: hard
 
@@ -1692,6 +1715,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-css@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "dom-css@npm:2.1.0"
+  dependencies:
+    add-px-to-style: "npm:1.0.0"
+    prefix-style: "npm:2.0.1"
+    to-camel-case: "npm:1.0.0"
+  checksum: 80975ea794f740b8da0ebde8b4a7203bcf017f44027c669f45c71822f9d298fcf62cd5333134af82d9f886719655149a3257ca3c669af920b523bc7e1fc6723c
+  languageName: node
+  linkType: hard
+
 "dom-helpers@npm:^5.0.1":
   version: 5.2.1
   resolution: "dom-helpers@npm:5.2.1"
@@ -1746,6 +1780,19 @@ __metadata:
     graceful-fs: "npm:^4.2.4"
     tapable: "npm:^2.2.0"
   checksum: 81a0515675eca17efdba2cf5bad87abc91a528fc1191aad50e275e74f045b41506167d420099022da7181c8d787170ea41e4a11a0b10b7a16f6237daecb15370
+  languageName: node
+  linkType: hard
+
+"enrich-polaris-component@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "enrich-polaris-component@npm:0.0.2"
+  dependencies:
+    "@immutabl3/to-style": "npm:^2.2.0"
+    dom-css: "npm:^2.1.0"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: f358b91904513c33552d09100c1052bd8de3aab8c976e19dbdef8e152a13c14d334912c32761d8826f91942c038005190d0b69d74ba52b681cdb4dd945b047e1
   languageName: node
   linkType: hard
 
@@ -4048,6 +4095,7 @@ __metadata:
     "@types/react-dom": "npm:18.2.7"
     "@vercel/analytics": "npm:^1.1.1"
     autoprefixer: "npm:10.4.14"
+    enrich-polaris-component: "npm:^0.0.2"
     eslint: "npm:8.46.0"
     eslint-config-next: "npm:13.4.13"
     jsx-to-string: "npm:^1.4.0"
@@ -4183,6 +4231,13 @@ __metadata:
     picocolors: "npm:^1.0.1"
     source-map-js: "npm:^1.2.0"
   checksum: 65ed67573e5443beaeb582282ff27a6be7c7fe3b4d9fa15761157616f2b97510cb1c335023c26220b005909f007337026d6e3ff092f25010b484ad484e80ea7f
+  languageName: node
+  linkType: hard
+
+"prefix-style@npm:2.0.1":
+  version: 2.0.1
+  resolution: "prefix-style@npm:2.0.1"
+  checksum: 1db0449b2f7578d30e0ca96cf3014b9dbe42531f0d97dac7ecc7f1369dfbf326fa8e8a321e468ee86e2959f001115c109a0ebe0a4182ca1e920cba10b2d8344d
   languageName: node
   linkType: hard
 
@@ -5185,12 +5240,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"to-camel-case@npm:1.0.0":
+  version: 1.0.0
+  resolution: "to-camel-case@npm:1.0.0"
+  dependencies:
+    to-space-case: "npm:^1.0.0"
+  checksum: 357921548908053d774d4b836f42437139c6fc9d73aaf40a1aa59d7317d760541a19667eb2884d9db83902065a90d80b0fe74c59bc13943e8489df9ef4335069
+  languageName: node
+  linkType: hard
+
+"to-no-case@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "to-no-case@npm:1.0.2"
+  checksum: c035b04e1042ed67ceb23dc5c7c20ccde11a83ab1d2b3947c17918472b5d26dd4ffdb4cf9464752e7707ab9f3af4a106f9b61244c724bc6810422acd5984da3d
+  languageName: node
+  linkType: hard
+
 "to-regex-range@npm:^5.0.1":
   version: 5.0.1
   resolution: "to-regex-range@npm:5.0.1"
   dependencies:
     is-number: "npm:^7.0.0"
   checksum: 487988b0a19c654ff3e1961b87f471702e708fa8a8dd02a298ef16da7206692e8552a0250e8b3e8759270f62e9d8314616f6da274734d3b558b1fc7b7724e892
+  languageName: node
+  linkType: hard
+
+"to-space-case@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "to-space-case@npm:1.0.0"
+  dependencies:
+    to-no-case: "npm:^1.0.0"
+  checksum: b99e1b5d0f3c90a8d47fa3b155d515027bd83a370740e82ee7cb064f86e3655f030f068bddcb8d18239e7408761b4376d89ab91e5ccdb17dc859d8fd4f570ac5
   languageName: node
   linkType: hard
 
