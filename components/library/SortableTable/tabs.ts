@@ -115,6 +115,8 @@ const SortableRow = ({ id, title, status, index }) => {
       ref={setNodeRef}
       style={dragStyle}
     >
+      {/* First column is a empty spacer to prevent a styling issue. */}
+      <IndexTable.Cell flush={true}></IndexTable.Cell>      
       <IndexTable.Cell>
         <div
           {...attributes}
@@ -123,7 +125,8 @@ const SortableRow = ({ id, title, status, index }) => {
           className='itemAction'
           style={{
             height: 'var(--p-height-500)',
-            touchAction: 'none'
+            touchAction: 'none',
+            cursor: isDragging ? 'grabbing' : 'grab',
           }}
         >
           <DragHandleIcon width='20' height='20' onClick={() => console.log('Handle item click')} />
@@ -216,6 +219,7 @@ export const SortableTable = ({ items, setItems }) => {
               itemCount={items.length}
               selectable={false}
               headings={[
+                { title: '', id: 'zero-spacer', flush: true },
                 { title: '', alignment: 'center', id: 'drag-handle' },
                 { title: 'Name' },
                 { title: 'Status', alignment: 'start' },
