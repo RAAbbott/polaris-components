@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "file": "Preview/Example.jsx",
+      "title": "Example Usage"
+    },
+    {
+      "file": "Preview/SortableList.jsx",
+      "title": "SortableList.jsx"
+    },
+    {
+      "file": "Preview/SortableList.module.css",
+      "title": "SortableList.module.css",
+      "lang": "css"
+    }
+  ]
+}

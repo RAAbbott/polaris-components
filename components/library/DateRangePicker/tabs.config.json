@@ -1,0 +1,12 @@
+{
+  "files": [
+    {
+      "file": "Preview/Example.jsx",
+      "title": "Example Usage"
+    },
+    {
+      "file": "Preview/DateRangePicker.jsx",
+      "title": "DateRangePicker.jsx"
+    }
+  ]
+}
