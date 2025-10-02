@@ -18,7 +18,7 @@ import {
   DuplicateIcon
 } from '@shopify/polaris-icons';
 import { LiveEditor, LiveProvider } from 'react-live';
-import { Contributor, PageComponent, Platform, UserEventType } from '@/types';
+import { Contributor, PageComponent, Platform, UserEventType, ComponentVariant } from '@/types';
 import { track } from '@vercel/analytics';
 
 const getContributorLink = ({ username, platform }: Contributor) => {
@@ -33,6 +33,7 @@ const getContributorLink = ({ username, platform }: Contributor) => {
 export const RenderComponent = ({
   title,
   Preview,
+  PreviewWebComponents,
   tabs,
   subtitle,
   dependencies,
@@ -44,7 +45,21 @@ export const RenderComponent = ({
   const [prevHeight, setPrevHeight] = useState(250);
   const [isMinimized, setIsMinimized] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [variant, setVariant] = useState<ComponentVariant>(ComponentVariant.WEB_COMPONENTS);
   const ref = useRef<HTMLDivElement>(null);
+
+  // Filter tabs based on selected variant
+  // If no variant is specified on a tab, show it for both variants
+  const filteredTabs = tabs.filter(t => !t.variant || t.variant === variant);
+
+  // Check if component has both variants available
+  const hasMultipleVariants = tabs.some(t => t.variant === ComponentVariant.REACT) &&
+    tabs.some(t => t.variant === ComponentVariant.WEB_COMPONENTS);
+
+  // Select the appropriate Preview component based on variant
+  const CurrentPreview = variant === ComponentVariant.WEB_COMPONENTS && PreviewWebComponents
+    ? PreviewWebComponents
+    : Preview;
 
   // State + markup for toast component
   const [active, setActive] = useState<boolean>(false);
@@ -169,12 +184,35 @@ export const RenderComponent = ({
           </Box>
         ) : null
       }
+      actionGroups={
+        hasMultipleVariants ? [
+          {
+            title: variant === ComponentVariant.REACT ? 'React' : 'Web Components',
+            actions: [
+              {
+                content: 'React',
+                onAction: () => {
+                  setVariant(ComponentVariant.REACT);
+                  setTab(0);
+                }
+              },
+              {
+                content: 'Web Components',
+                onAction: () => {
+                  setVariant(ComponentVariant.WEB_COMPONENTS);
+                  setTab(0);
+                }
+              }
+            ]
+          }
+        ] : undefined
+      }
     >
       <Layout>
         <Layout.Section>
           {dependencies ? <DependencyBanner openModal={() => setModalOpen(true)} /> : null}
           <div className='relative z-0'>
-            <Preview />
+            <CurrentPreview />
           </div>
         </Layout.Section>
       </Layout>
@@ -214,7 +252,7 @@ export const RenderComponent = ({
           {/* Tabs for component files */}
           <div className='absolute -top-[36px] left-24'>
             <div className='min-w-fit flex justify-start bg-gray-200 overflow-x-auto overflow-y-hidden'>
-              {tabs.map(({ title }: { title: string }, i: number) => (
+              {filteredTabs.map(({ title }: { title: string }, i: number) => (
                 <div
                   key={i}
                   className={`py-2 px-3 cursor-pointer min-w-fit ${i === tab ? 'bg-white' : ''}`}
@@ -225,6 +263,7 @@ export const RenderComponent = ({
               ))}
             </div>
           </div>
+
 
           {/* Code editor wrapper */}
           <div
@@ -240,18 +279,18 @@ export const RenderComponent = ({
                 icon={DuplicateIcon}
                 size='large'
                 onClick={() => {
-                  navigator.clipboard.writeText(tabs[tab].content);
+                  navigator.clipboard.writeText(filteredTabs[tab].content);
                   toggleActive();
-                  track('Copy File', { component: title, file: tabs[tab]?.title });
+                  track('Copy File', { component: title, file: filteredTabs[tab]?.title, variant });
                 }}
               />
             </div>
 
             {/* Code editor */}
             <LiveProvider
-              code={tabs[tab]?.content}
+              code={filteredTabs[tab]?.content}
               disabled={true}
-              language={tabs[tab]?.lang || 'jsx'}
+              language={filteredTabs[tab]?.lang || 'jsx'}
             >
               <LiveEditor
                 style={{
