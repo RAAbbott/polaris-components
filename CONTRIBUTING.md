@@ -1,7 +1,5 @@
 # Contributing
 
-*(This is a work in progress)*
-
 **IMPORTANT - Before opening a pull request to contribute, make sure your component meets these guidelines:**
 - Compatible with the latest major version of [Polaris](https://polaris.shopify.com/) (currently v12) and the latest major version of [Polaris Icons](https://polaris.shopify.com/icons) (currently v8)
 - Follows design guidelines laid out by the Polaris docs ([design](https://polaris.shopify.com/design), [content](https://polaris.shopify.com/content), and [patterns](https://polaris.shopify.com/patterns))
@@ -11,80 +9,270 @@
 
 ---
 
-If you'd like to start getting familiar with the code and adding your own components while this is being worked on, fork this repo then clone to your computer to get started.
+## Quick Start
 
-After you've cloned the repo run `yarn install` then `yarn dev` to start the dev server. (Make sure you have `yarn` installed)
+1. **Fork and clone** this repository
+2. **Install dependencies**: `yarn install`
+3. **Start dev server**: `yarn dev`
+4. **Create your component** following the structure below
+5. **Test thoroughly** before submitting a PR
 
-The components are currently found under `/components/library` and follow this structure (**This structure isn't optimal and will be changing soon, but will still be similar**):
+---
 
-```
-/components
-    /library
-        /ActionCard
-            /Preview
-                - ActionCard.jsx
-                - Example.jsx
-                - index.ts
-            - tabs.ts
-            - index.ts
-        /SetupGuide
-        ...
-```
+## Development Workflow
 
+### Step 1: Create Component Directory Structure
 
-Each component folder has a few important parts:
-
-## Preview
-The `/Preview` folder contains the code files needed to render the preview (top) section of the component page. In the case of the `ActionCard`, we have the `ActionCard.jsx` file which is the actual component code, `Example.jsx` which is the code that we export to render the component preview page, and `index.ts` which just exports the `Example` component as `Preview`. 
-
-With this setup, the `Example.jsx` file is essentially what is rendered in the preview
-
-## Tabs
-The `tabs.ts` file looks like this:
+Create a new folder under `/components/library/YourComponentName/`:
 
 ```
-const Example = `...Example.jsx code as string`
-const ActionCard = `...Action.jsx code as string`
-
-export const tabs = [
-  { title: 'Example Usage', content: Example },
-  { title: 'ActionCard.jsx', content: ActionCard }
-];
+/components/library/YourComponentName/
+  /Preview/
+    - YourComponentName.jsx       # The component implementation
+    - Example.jsx                  # Example usage of your component
+    - YourComponentName.module.css # (Optional) CSS module if needed
+    - index.ts                     # Exports Example as Preview
+  - tabs.config.json               # Config for code display tabs
+  - index.ts                       # Main exports file
 ```
 
-This is used to generate the tabs in the code editor section of the component page. 
+### Step 2: Build Your Component
 
-You can also specify a `lang` attribute for each tab for files other than `jsx` (e.g. `css`, `tsx`...`). 
+**YourComponentName.jsx** - The actual component:
+```jsx
+import { Card, Text } from '@shopify/polaris';
 
-I originally did this method with the stringified jsx because of simplicity and flexibility, but plan to update it soon to just read the code directly from the component files.
-
-## Index
-The `index.ts` file of the component folder (`/ActionCard/index.ts`) exports all relevant info to be rendered by the page. 
-
-Required exports are a `tabs` array, a `Preview` component, and a `title` which is the page title. Some components will also have a `Banner` comopnent exported here (from a `Banner.tsx` file in this same folder) that is used to provide context for the component but should be used sparingly, mostly just for indicating the use of external dependencies. 
-
-You should also export a `contributor` string which is your GitHub username, but it's not required. Your file should look like this:
-
-```
-export { tabs } from './tabs'; // REQUIRED
-export { Preview } from './Preview'; // REQUIRED
-export const title = 'Action Card'; // REQUIRED
-export const contributor = 'RAAbbott';
+export const YourComponentName = ({ title }) => {
+  return (
+    <Card>
+      <Text as="h2" variant="headingMd">
+        {title}
+      </Text>
+    </Card>
+  );
+};
 ```
 
-The last step is adding your component to the `Navigation` component in `Layout.tsx`. In the `items` prop of the component section, add a new item object with this structure:
+**Example.jsx** - Shows how to use it:
+```jsx
+import { Layout, Page } from '@shopify/polaris';
+import { YourComponentName } from './YourComponentName';
 
+export const Example = () => {
+  return (
+    <Page narrowWidth>
+      <Layout>
+        <Layout.Section>
+          <YourComponentName title="Hello World" />
+        </Layout.Section>
+      </Layout>
+    </Page>
+  );
+};
 ```
+
+**Preview/index.ts** - Export the example:
+```typescript
+export { Example as Preview } from './Example';
+```
+
+### Step 3: Create tabs.config.json
+
+This file tells the system which files to display in the code viewer:
+
+**Basic component** (no CSS):
+```json
 {
-    label: 'Component Name',
-    icon: AppsIcon,
-    selected: asPath === '/components/component-name', // component name should be in kebab-case
-    onClick: () => changePage('/components/component-name') // should use same route as above prop
+  "files": [
+    {
+      "file": "Preview/Example.jsx",
+      "title": "Example Usage"
+    },
+    {
+      "file": "Preview/YourComponentName.jsx",
+      "title": "YourComponentName.jsx"
+    }
+  ]
 }
 ```
 
-## Testing
+**Component with CSS module**:
+```json
+{
+  "files": [
+    {
+      "file": "Preview/Example.jsx",
+      "title": "Example Usage"
+    },
+    {
+      "file": "Preview/YourComponentName.jsx",
+      "title": "YourComponentName.jsx"
+    },
+    {
+      "file": "Preview/YourComponentName.module.css",
+      "title": "YourComponentName.module.css",
+      "lang": "css"
+    }
+  ]
+}
+```
 
-After you add these changes, verify that the component is showing up in the navigation bar and that clicking it takes you to the component page. Verify that the code files and the rendered preview are correct. We don't have any automated testing at the moment, but you should test your implementation from the perspective of a user, copying over the code files from the UI to a project with Polaris (v12) installed and ensuring it works as expected in a different setup/environment.
+**Language options**: `jsx`, `tsx`, `css`, `scss`, `typescript`, `javascript`, etc.
 
-If you build your component with this same structure in place, everything should show up correctly in the component preview and code files. If you have any questions you can reach out to me on [twitter](https://x.com/devwithalex) or open a discussion if you run into any bugs/roadblocks.
+### Step 4: Generate tabs.ts
+
+Run the generation script:
+```bash
+yarn generate-tabs
+```
+
+This reads your component files and generates `tabs.ts` with the actual code content. The `tabs.ts` file is auto-generated - **never edit it manually!**
+
+**Note**: This also runs automatically before builds via the `prebuild` script, so if you forget this step, the build process will handle it.
+
+### Step 5: Create Main index.ts
+
+In your component's root directory (`/YourComponentName/index.ts`):
+
+```typescript
+import { Platform } from '@/types';
+
+export { tabs } from './tabs';
+export { Preview } from './Preview';
+export const title = 'Your Component Name'; // Display name
+export const contributors = [
+  { username: 'your-github-username', platform: Platform.GITHUB }
+];
+
+// Optional: if your component requires external dependencies
+export const dependencies = ['package-name', 'another-package'];
+```
+
+### Step 6: Add to Navigation
+
+Edit `/components/Layout.tsx` and add your component to the navigation:
+
+```typescript
+{
+  label: 'Your Component Name',
+  icon: AppsIcon,
+  selected: asPath === '/components/your-component-name', // kebab-case
+  onClick: () => changePage('/components/your-component-name')
+}
+```
+
+The route must be in **kebab-case** (e.g., `your-component-name`).
+
+### Step 7: Test Your Component
+
+1. **View in browser**: Navigate to `http://localhost:3000/components/your-component-name`
+2. **Check the preview**: Verify your component renders correctly
+3. **Check the code tabs**: Ensure all code files display properly
+4. **Copy & test**: Copy the code from the UI and paste it into a fresh Polaris project to ensure it works standalone
+
+If you make changes to your component files, run `yarn generate-tabs` again to update the displayed code.
+
+---
+
+## Component Structure Explained
+
+### Preview Folder
+Contains all the code that will be displayed to users:
+- **Component file**: The actual implementation
+- **Example file**: Demonstrates usage
+- **CSS module** (optional): Styles if needed
+- **index.ts**: Exports the Example as Preview
+
+### tabs.config.json
+A simple JSON file listing which files to show in the code viewer. The build script reads these files and generates `tabs.ts` automatically.
+
+### Main index.ts
+Exports everything needed for the component page:
+- `tabs` - Auto-generated code snippets
+- `Preview` - The rendered example
+- `title` - Display name
+- `contributors` - Your info (optional)
+- `dependencies` - External packages (optional)
+
+---
+
+## Best Practices
+
+### Styling
+- **Prefer inline styles** when possible (easier to copy/paste)
+- **Use CSS modules** only when inline styles become unwieldy
+- **Follow Polaris design tokens** for consistency
+
+### Code Quality
+- **Keep it simple**: Users should understand your code easily
+- **Add comments**: Explain non-obvious logic
+- **Use TypeScript types**: When appropriate
+- **Test edge cases**: Empty states, loading states, errors
+
+### Documentation
+- **Clear prop names**: Self-documenting where possible
+- **Example usage**: Show common use cases
+- **Comment complex logic**: Help users understand
+
+---
+
+## Troubleshooting
+
+### Component not showing in navigation
+- Check that you added it to `Layout.tsx`
+- Verify the route matches the component name in kebab-case
+- Restart the dev server
+
+### Code not displaying correctly
+- Run `yarn generate-tabs` to regenerate tabs.ts
+- Check that file paths in `tabs.config.json` are correct
+- Verify files exist in the Preview folder
+
+### Dev server errors after adding component
+- Restart dev server: Stop (Ctrl+C) and run `yarn dev`
+- Run `yarn build` to check for build errors
+
+### Changes not showing up
+- Run `yarn generate-tabs` after editing component files
+- Hard refresh browser (Cmd+Shift+R or Ctrl+Shift+R)
+- Check browser console for errors
+
+---
+
+## External Dependencies
+
+If your component requires external packages:
+
+1. **Add to package.json dependencies** (submit with PR)
+2. **Export from index.ts**:
+   ```typescript
+   export const dependencies = ['package-name'];
+   ```
+3. **Document in Example.jsx**: Add comments showing installation
+
+External dependencies should be used sparingly and only when necessary.
+
+---
+
+## Pull Request Checklist
+
+Before submitting:
+- [ ] Component follows Polaris design guidelines
+- [ ] Code is clean and well-commented
+- [ ] `tabs.config.json` created
+- [ ] `yarn generate-tabs` run successfully
+- [ ] Component added to navigation in `Layout.tsx`
+- [ ] Tested in browser - preview and code display work
+- [ ] Tested code by copying to external Polaris project
+- [ ] No build errors (`yarn build` succeeds)
+- [ ] Contributors added to index.ts
+
+---
+
+## Need Help?
+
+- Open a [GitHub Discussion](https://github.com/RAAbbott/polaris-components/discussions) for questions
+- Report bugs via [GitHub Issues](https://github.com/RAAbbott/polaris-components/issues)
+- Reach out on [Twitter/X](https://x.com/devwithalex)
+
+Thank you for contributing! 🎉
