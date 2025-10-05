@@ -60,13 +60,20 @@ function generateTabsFile(componentDir, config) {
       const content = fs.readFileSync(filePath, 'utf-8');
       const lang = fileConfig.lang || detectLanguage(fileConfig.file);
 
-      tabs.push({
+      const tab = {
         title: fileConfig.title,
         content,
         lang
-      });
+      };
 
-      console.log(`  ✓ Read ${fileConfig.file}`);
+      // Add variant if specified
+      if (fileConfig.variant) {
+        tab.variant = fileConfig.variant;
+      }
+
+      tabs.push(tab);
+
+      console.log(`  ✓ Read ${fileConfig.file}${fileConfig.variant ? ` (${fileConfig.variant})` : ''}`);
     } catch (err) {
       console.error(`  ❌ Error reading ${fileConfig.file}:`, err.message);
     }

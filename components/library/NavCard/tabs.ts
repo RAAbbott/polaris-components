@@ -7,11 +7,25 @@ export const tabs: Tab[] = [
   {
     "title": "Example Usage",
     "content": "import { Page, Layout } from \"@shopify/polaris\";\nimport { NavCard } from \"./NavCard\";\n\nexport const Example = () => {\n  return (\n    <Page narrowWidth>\n      <Layout>\n        <Layout.Section>\n          <NavCard />\n        </Layout.Section>\n      </Layout>\n    </Page>\n  );\n};\n",
-    "lang": "jsx"
+    "lang": "jsx",
+    "variant": "react"
   },
   {
     "title": "NavCard.jsx",
     "content": "import { Card, Text, InlineStack, Icon } from '@shopify/polaris';\nimport { ChevronRightIcon, OrderIcon } from \"@shopify/polaris-icons\";\n\nexport const NavCard = () => {\n  return (\n    <a href='https://example.com' rel=\"noreferrer\" style={{ textDecoration: 'none', color: 'inherit' }} target='_blank'>\n      <Card>\n        <InlineStack blockAlign='center' align='space-between'>\n          <InlineStack align='center' gap='200'>\n            <Icon source={OrderIcon} />\n            <Text as='p' variant='headingMd'>\n              38 orders to fulfill\n            </Text>\n          </InlineStack>\n          <div>\n            <Icon source={ChevronRightIcon} />\n          </div>\n        </InlineStack>\n      </Card>\n    </a>\n  );\n};\n",
-    "lang": "jsx"
+    "lang": "jsx",
+    "variant": "react"
+  },
+  {
+    "title": "Example Usage",
+    "content": "import { NavCard } from \"./NavCard\";\n\nexport const Example = () => {\n  return (\n    <s-page inlineSize=\"small\">\n      <NavCard />\n    </s-page>\n  );\n};\n",
+    "lang": "jsx",
+    "variant": "web-components"
+  },
+  {
+    "title": "NavCard.jsx",
+    "content": "export const NavCard = () => {\n  return (\n    <s-clickable\n      href='https://example.com'\n      target='_blank'\n    >\n      <s-section padding=\"base\">\n        <s-stack direction=\"inline\" gap=\"base\" alignItems=\"center\" justifyContent=\"space-between\">\n          <s-stack direction=\"inline\" gap=\"base\" alignItems=\"center\">\n            <s-icon type=\"order\"></s-icon>\n            <s-text type=\"strong\">38 orders to fulfill</s-text>\n          </s-stack>\n          <s-icon type=\"chevron-right\"></s-icon>\n        </s-stack>\n      </s-section>\n    </s-clickable>\n  );\n};\n",
+    "lang": "jsx",
+    "variant": "web-components"
   }
 ];
