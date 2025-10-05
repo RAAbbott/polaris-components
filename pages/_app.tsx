@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
           rel="stylesheet"
           href="https://cdn.shopify.com/static/fonts/inter/v4/styles.css"
         />
-        <script src="https://cdn.shopify.com/shopifycloud/polaris.js"></script>
+        <script src="https://cdn.shopify.com/shopifycloud/polaris.js" async></script>
       </Head>
       <AppProvider i18n={enTranslations}>
         <Layout>
