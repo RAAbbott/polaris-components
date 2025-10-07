@@ -1,12 +1,24 @@
 {
   "files": [
     {
-      "file": "Preview/Example.jsx",
-      "title": "Example Usage"
+      "file": "Preview/react/Example.jsx",
+      "title": "Example Usage",
+      "variant": "react"
     },
     {
-      "file": "Preview/FeedbackCard.jsx",
-      "title": "FeedbackCard.jsx"
+      "file": "Preview/react/FeedbackCard.jsx",
+      "title": "FeedbackCard.jsx",
+      "variant": "react"
+    },
+    {
+      "file": "Preview/web-components/Example.jsx",
+      "title": "Example Usage",
+      "variant": "web-components"
+    },
+    {
+      "file": "Preview/web-components/FeedbackCard.jsx",
+      "title": "FeedbackCard.jsx",
+      "variant": "web-components"
     }
   ]
 }

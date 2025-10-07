@@ -7,11 +7,25 @@ export const tabs: Tab[] = [
   {
     "title": "Example Usage",
     "content": "import { Layout, Page } from '@shopify/polaris';\nimport { FeedbackCard } from './FeedbackCard';\n\nexport const Example = () => {\n  return (\n    <Page>\n      <Layout>\n        <Layout.Section>\n          <FeedbackCard />\n        </Layout.Section>\n      </Layout>\n    </Page>\n  );\n};\n",
-    "lang": "jsx"
+    "lang": "jsx",
+    "variant": "react"
   },
   {
     "title": "FeedbackCard.jsx",
     "content": "import { Card, BlockStack, Text, Button, ButtonGroup, InlineStack } from '@shopify/polaris';\nimport { XIcon, ThumbsDownIcon, ThumbsUpIcon } from \"@shopify/polaris-icons\";\n\nexport const FeedbackCard = () => {\n  return (\n    <Card>\n      <BlockStack gap='400' align='start'>\n        <BlockStack gap='200'>\n          <InlineStack align='space-between'>\n            <Text as='h2' variant='headingMd'>\n              Share your feedback\n            </Text>\n            <XIcon width='1rem' height='1rem' style={{ cursor: 'pointer' }} />\n          </InlineStack>\n          <Text as='p' variant='bodyMd' tone='subdued'>\n            How would you describe your experience using the Polaris Components app?\n          </Text>\n        </BlockStack>\n        <ButtonGroup>\n          <Button icon={ThumbsUpIcon} onClick={() => null}>\n            Good\n          </Button>\n          <Button icon={ThumbsDownIcon} onClick={() => null}>\n            Bad\n          </Button>\n        </ButtonGroup>\n      </BlockStack>\n    </Card>\n  );\n};\n",
-    "lang": "jsx"
+    "lang": "jsx",
+    "variant": "react"
+  },
+  {
+    "title": "Example Usage",
+    "content": "import { FeedbackCard } from \"./FeedbackCard\";\n\nexport const Example = () => {\n  return (\n    <s-page>\n      <FeedbackCard />\n    </s-page>\n  );\n};\n",
+    "lang": "jsx",
+    "variant": "web-components"
+  },
+  {
+    "title": "FeedbackCard.jsx",
+    "content": "export const FeedbackCard = () => {\n  return (\n    <s-section>\n      <s-stack direction=\"block\" gap=\"small-400\" alignItems=\"start\">\n        <s-stack direction=\"inline\" justifyContent=\"space-between\" alignItems=\"center\" inlineSize=\"100%\">\n          <s-heading>\n            Share your feedback\n          </s-heading>\n          <s-button icon=\"x\" variant=\"tertiary\" />\n        </s-stack>\n        <s-paragraph color=\"subdued\">\n          How would you describe your experience using the Polaris Components app?\n        </s-paragraph>\n        <s-box paddingBlockStart=\"small\">\n          <s-button-group>\n            <s-button icon=\"thumbs-up\" slot=\"secondary-actions\">\n              Good\n            </s-button>\n            <s-button icon=\"thumbs-down\" slot=\"secondary-actions\">\n              Bad\n            </s-button>\n          </s-button-group>\n        </s-box>\n      </s-stack>\n    </s-section>\n  );\n};\n",
+    "lang": "jsx",
+    "variant": "web-components"
   }
 ];
