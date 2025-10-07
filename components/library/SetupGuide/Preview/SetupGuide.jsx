@@ -1,4 +1,4 @@
-import { useState, useId } from 'react';
+import { useEffect, useId, useMemo, useState } from 'react';
 import {
   BlockStack,
   Card,
@@ -25,6 +25,22 @@ export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
   const [popoverActive, setPopoverActive] = useState(false);
   const accessId = useId();
   const completedItemsLength = items.filter((item) => item.complete).length;
+
+  // Preload all setup items images once so accordion toggles don't trigger re-fetches
+  const imageUrls = useMemo(
+    () => items.map((item) => item?.image?.url).filter(Boolean),
+    [items]
+  );
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !('Image' in window)) return;
+    imageUrls.forEach((src) => {
+      const img = new window.Image();
+      img.decoding = 'async';
+      img.loading = 'eager';
+      img.src = src;
+    });
+  }, [imageUrls]);
 
   return (
     <Card padding='0'>
@@ -237,12 +253,13 @@ const SetupItem = ({
                 </Box>
               </Collapsible>
             </BlockStack>
-            {image && expanded ? ( // hide image at 700px down
+            {image ? (
+              // hide image at 700px down
               <Image
                 className={styles.itemImage}
                 source={image.url}
                 alt={image.alt}
-                style={{ maxHeight: '7.75rem' }}
+                style={{ maxHeight: '7.75rem', display: expanded ? 'block' : 'none' }}
               />
             ) : null}
           </div>
