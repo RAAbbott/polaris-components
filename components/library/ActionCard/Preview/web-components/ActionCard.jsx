@@ -8,7 +8,7 @@ export const ActionCard = () => {
           </s-heading>
           <s-paragraph color="subdued">
             Payments that are made outside your online store. When a customer selects a manual payment method such as
-            cash on delivery, you'll need to approve their order before it can be fulfilled.
+            cash on delivery, you&apos;ll need to approve their order before it can be fulfilled.
           </s-paragraph>
         </s-stack>
         <s-button commandFor="payment-methods-menu">
