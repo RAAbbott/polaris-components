@@ -128,14 +128,12 @@ export const Layout = ({ children }: PropsWithChildren) => {
             },
             {
               label: 'Timeline',
-              badge: <Badge tone='success'>New</Badge>,
               icon: AppsIcon,
               selected: asPath === '/components/timeline',
               onClick: () => changePage('/components/timeline')
             },
             {
               label: 'Knob',
-              badge: <Badge tone='success'>New</Badge>,
               icon: AppsIcon,
               selected: asPath === '/components/knob',
               onClick: () => changePage('/components/knob')
@@ -143,7 +141,6 @@ export const Layout = ({ children }: PropsWithChildren) => {
             {
               label: 'Review Banner',
               icon: AppsIcon,
-              badge: <Badge tone='success'>New</Badge>,
               selected: asPath === '/components/review-banner',
               onClick: () => changePage('/components/review-banner')
             }
@@ -172,9 +169,8 @@ export const Layout = ({ children }: PropsWithChildren) => {
 
       {/* Bottom nav bar items */}
       <div
-        className={`bottom-0 pt-[.5rem] fixed z-[1000] w-[15rem] ${
-          !mdDown ? 'text-[0.8125rem]' : showMobileNav ? 'text-[0.875rem]' : 'hidden'
-        }`}
+        className={`bottom-0 pt-[.5rem] fixed z-[1000] w-[15rem] ${!mdDown ? 'text-[0.8125rem]' : showMobileNav ? 'text-[0.875rem]' : 'hidden'
+          }`}
       >
         <Navigation.Section
           items={[
