@@ -28,6 +28,7 @@
     "@types/react-dom": "18.2.7",
     "@vercel/analytics": "^1.1.1",
     "autoprefixer": "10.4.14",
+    "enrich-polaris-component": "0.0.5",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
     "jsx-to-string": "^1.4.0",
