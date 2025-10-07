@@ -143,6 +143,13 @@ export const Layout = ({ children }: PropsWithChildren) => {
               icon: AppsIcon,
               selected: asPath === '/components/review-banner',
               onClick: () => changePage('/components/review-banner')
+            },
+            {
+              label: 'Icon Choice List',
+              icon: AppsIcon,
+              badge: <Badge tone='success'>New</Badge>,
+              selected: asPath === '/components/icon-choice-list',
+              onClick: () => changePage('/components/icon-choice-list')
             }
           ]}
           action={{

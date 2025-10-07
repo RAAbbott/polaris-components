@@ -1,0 +1,59 @@
+.item {
+  cursor: pointer;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--p-space-200);
+}
+
+.item.disabled {
+  pointer-events: none;
+  color: var(--p-color-text-disabled);
+}
+.item.disabled * {
+  color: var(--p-color-text-disabled);
+}
+
+.item.disabled .icon_container {
+  background-color: var(--p-color-checkbox-bg-surface-disabled);
+  border-color: var(--p-color-border-disabled);
+}
+
+.item.disabled .icon_container svg {
+  fill: var(--p-color-icon-disabled);
+}
+
+.icon_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--p-color-bg-fill-secondary);
+  border-radius: var(--p-border-radius-200);
+  height: var(--p-width-1600);
+  width: var(--p-width-3200);
+  border-width: var(--p-border-width-050);
+  border-style: solid;
+  border-color: var(--p-color-bg-fill-secondary);
+}
+
+.item .icon_container svg {
+  fill: var(--p-color-icon);
+}
+
+.item:hover .icon_container {
+  background-color: var(--p-color-bg-fill-secondary-hover);
+  border-color: var(--p-color-input-border-hover);
+}
+.item:hover .icon_container svg {
+  fill: var(--p-color-icon-hover);
+}
+
+.item.active .icon_container {
+  background-color: var(--p-color-bg-surface-secondary-active);
+  border-color: var(--p-color-input-border-active);
+}
+
+.item.active .icon_container svg {
+  fill: var(--p-color-icon-active);
+}
