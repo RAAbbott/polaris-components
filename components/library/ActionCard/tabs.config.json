@@ -1,12 +1,24 @@
 {
   "files": [
     {
-      "file": "Preview/Example.jsx",
-      "title": "Example Usage"
+      "file": "Preview/react/Example.jsx",
+      "title": "Example Usage",
+      "variant": "react"
     },
     {
-      "file": "Preview/ActionCard.jsx",
-      "title": "ActionCard.jsx"
+      "file": "Preview/react/ActionCard.jsx",
+      "title": "ActionCard.jsx",
+      "variant": "react"
+    },
+    {
+      "file": "Preview/web-components/Example.jsx",
+      "title": "Example Usage",
+      "variant": "web-components"
+    },
+    {
+      "file": "Preview/web-components/ActionCard.jsx",
+      "title": "ActionCard.jsx",
+      "variant": "web-components"
     }
   ]
 }

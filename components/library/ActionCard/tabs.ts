@@ -7,11 +7,25 @@ export const tabs: Tab[] = [
   {
     "title": "Example Usage",
     "content": "import { Layout, Page } from \"@shopify/polaris\";\nimport { ActionCard } from \"./ActionCard\";\n\nexport const Example = () => {\n  return (\n    <Page narrowWidth>\n      <Layout>\n        <Layout.Section>\n          <ActionCard />\n        </Layout.Section>\n      </Layout>\n    </Page>\n  );\n};\n",
-    "lang": "jsx"
+    "lang": "jsx",
+    "variant": "react"
   },
   {
     "title": "ActionCard.jsx",
     "content": "import { useState } from \"react\";\nimport { Card, BlockStack, Text, Button, ActionList, Popover } from \"@shopify/polaris\";\n\nexport const ActionCard = () => {\n  const [active, setActive] = useState(false);\n\n  return (\n    <Card>\n      <BlockStack gap=\"400\" align=\"start\">\n        <BlockStack gap=\"200\">\n          <Text as=\"h2\" variant=\"headingMd\">\n            Payment Methods\n          </Text>\n          <Text as=\"p\" variant=\"bodyMd\" tone=\"subdued\">\n            Payments that are made outside your online store. When a customer selects a manual payment method such as\n            cash on delivery, you&apos;ll need to approve their order before it can be fulfilled.\n          </Text>\n        </BlockStack>\n        <Popover\n          active={active}\n          activator={\n            <Button onClick={() => setActive((prev) => !prev)} disclosure>\n              Add manual payment method\n            </Button>\n          }\n          autofocusTarget=\"first-node\"\n          onClose={() => setActive((prev) => !prev)}\n        >\n          <ActionList\n            actionRole=\"menuitem\"\n            items={[\n              {\n                content: \"Create custom payment method\",\n                onAction: () => null,\n              },\n              {\n                content: \"Bank Deposit\",\n                onAction: () => null,\n              },\n            ]}\n          />\n        </Popover>\n      </BlockStack>\n    </Card>\n  );\n};\n",
-    "lang": "jsx"
+    "lang": "jsx",
+    "variant": "react"
+  },
+  {
+    "title": "Example Usage",
+    "content": "import { ActionCard } from \"./ActionCard\";\n\nexport const Example = () => {\n  return (\n    <s-page inlineSize=\"small\">\n      <ActionCard />\n    </s-page>\n  );\n};\n",
+    "lang": "jsx",
+    "variant": "web-components"
+  },
+  {
+    "title": "ActionCard.jsx",
+    "content": "export const ActionCard = () => {\n  return (\n    <s-section padding=\"base\">\n      <s-stack direction=\"block\" gap=\"large\" alignItems=\"start\">\n        <s-stack direction=\"block\" gap=\"base\">\n          <s-heading>\n            Payment Methods\n          </s-heading>\n          <s-paragraph color=\"subdued\">\n            Payments that are made outside your online store. When a customer selects a manual payment method such as\n            cash on delivery, you'll need to approve their order before it can be fulfilled.\n          </s-paragraph>\n        </s-stack>\n        <s-button commandFor=\"payment-methods-menu\">\n          Add manual payment method\n        </s-button>\n        <s-menu id=\"payment-methods-menu\" accessibilityLabel=\"Payment method options\">\n          <s-button>Create custom payment method</s-button>\n          <s-button>Bank Deposit</s-button>\n        </s-menu>\n      </s-stack>\n    </s-section>\n  );\n};\n",
+    "lang": "jsx",
+    "variant": "web-components"
   }
 ];

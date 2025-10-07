@@ -485,6 +485,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shopify/polaris-types@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@shopify/polaris-types@npm:1.0.1"
+  checksum: fb6c99ef610462eabdef5ae723737f088912c28e513e38480d3312783db64c7838c787466b1aedab39f994486729e964d0c6228f71e029b5bac877c3357aa3d6
+  languageName: node
+  linkType: hard
+
 "@shopify/polaris-viz-core@npm:^14.4.0":
   version: 14.4.0
   resolution: "@shopify/polaris-viz-core@npm:14.4.0"
@@ -4042,6 +4049,7 @@ __metadata:
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@shopify/polaris": "npm:^13.4.0"
     "@shopify/polaris-icons": "npm:^9.1.0"
+    "@shopify/polaris-types": "npm:^1.0.1"
     "@shopify/polaris-viz": "npm:^14.4.0"
     "@types/node": "npm:20.4.9"
     "@types/react": "npm:18.2.47"
