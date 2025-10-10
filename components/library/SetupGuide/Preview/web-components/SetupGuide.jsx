@@ -1,5 +1,4 @@
 import { useState, useId } from 'react';
-import { CheckIcon } from "@shopify/polaris-icons";
 import styles from './SetupGuide.module.css';
 
 export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
