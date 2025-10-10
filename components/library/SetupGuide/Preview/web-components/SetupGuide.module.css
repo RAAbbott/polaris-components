@@ -1,0 +1,41 @@
+.setupItem {
+  /* padding: 0.25rem 0.5rem; */
+  border-radius: 0.5rem;
+}
+
+.setupItem:hover {
+  background-color: #f7f7f7;
+}
+
+.setupItemExpanded:hover {
+  background-color: inherit;
+}
+
+.completeButton {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #303030;
+}
+
+.itemContent {
+  width: 100%;
+  display: flex;
+  gap: 8rem;
+  justify-content: space-between;
+}
+
+/* These styles take into account the Shopify sidebar visibility & hides image based on window width */
+@media (min-width: 48em) and (max-width: 61.871875em) {
+  .itemImage {
+    display: none;
+  }
+}
+
+@media (max-width: 45.625em) {
+  .itemImage {
+    display: none;
+  }
+}

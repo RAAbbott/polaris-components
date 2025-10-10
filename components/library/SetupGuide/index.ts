@@ -3,6 +3,6 @@
 import { Platform } from '@/types';
 
 export { tabs } from './tabs';
-export { Preview } from './Preview';
+export { Preview, PreviewWebComponents } from './Preview';
 export const title = 'Setup Guide';
 export const contributors = [{ username: 'devwithalex', platform: Platform.TWITTER }];
