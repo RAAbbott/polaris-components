@@ -1,12 +1,24 @@
 {
   "files": [
     {
-      "file": "Preview/Example.jsx",
-      "title": "Example Usage"
+      "file": "Preview/react/Example.jsx",
+      "title": "Example Usage",
+      "variant": "react"
     },
     {
-      "file": "Preview/ReviewBanner.jsx",
-      "title": "ReviewBanner.jsx"
+      "file": "Preview/react/ReviewBanner.jsx",
+      "title": "ReviewBanner.jsx",
+      "variant": "react"
+    },
+    {
+      "file": "Preview/web-components/Example.jsx",
+      "title": "Example Usage",
+      "variant": "web-components"
+    },
+    {
+      "file": "Preview/web-components/ReviewBanner.jsx",
+      "title": "ReviewBanner.jsx",
+      "variant": "web-components"
     }
   ]
 }

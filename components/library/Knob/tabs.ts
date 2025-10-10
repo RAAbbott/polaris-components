@@ -7,16 +7,37 @@ export const tabs: Tab[] = [
   {
     "title": "Example Usage",
     "content": "import { useState } from 'react';\nimport { Page, Layout, Card, InlineStack, Text, Badge } from '@shopify/polaris';\nimport { Knob } from './Knob';\n\nexport function Example() {\n  const [selected, setSelected] = useState(false);\n\n  return (\n    <Page narrowWidth>\n      <Layout>\n        <Layout.Section>\n          <Card>\n            <InlineStack align='space-between'>\n              <InlineStack align='start' gap='200' blockAlign='center'>\n                <Text as='p' variant='bodyMd'>\n                  Toggle Knob\n                </Text>\n                <Badge tone={selected ? 'success' : 'attention'}>\n                  {selected ? 'Enabled' : 'Disabled'}\n                </Badge>\n              </InlineStack>\n              <Knob\n                selected={selected}\n                ariaLabel='Example knob'\n                onClick={() => setSelected((prev) => !prev)}\n              />\n            </InlineStack>\n          </Card>\n        </Layout.Section>\n      </Layout>\n    </Page>\n  );\n}\n",
-    "lang": "jsx"
+    "lang": "jsx",
+    "variant": "react"
   },
   {
     "title": "Knob.jsx",
     "content": "import styles from './Knob.module.css';\n\n/**\n * @typedef {Object} KnobProps\n * @property {string} ariaLabel - The aria-label for the knob\n * @property {boolean} selected - Whether the knob is selected or not\n * @property {() => void} onClick - The function to call when the knob is clicked\n */\n\n/**\n * Knob component\n * @param {KnobProps} props - The props for the Knob component\n * @returns {JSX.Element} The rendered Knob component\n */\nexport const Knob = ({ ariaLabel, selected, onClick }) => {\n  return (\n    <button\n      id=':rgi:'\n      className={`${styles.track} ${selected && styles.track_on}`}\n      aria-label={ariaLabel}\n      role='switch'\n      type='button'\n      aria-checked='false'\n      onClick={onClick}\n    >\n      <div className={`${styles.knob} ${selected && styles.knob_on}`}></div>\n    </button>\n  );\n};\n",
-    "lang": "jsx"
+    "lang": "jsx",
+    "variant": "react"
   },
   {
     "title": "Knob.module.css",
     "content": ".track {\n  height: var(--track-height);\n  width: 2rem;\n  background: var(--p-color-icon-secondary);\n  padding: 0.25rem;\n  box-shadow: inset 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.05);\n  border: none;\n  border-radius: 0.375rem;\n  cursor: pointer;\n  transition: background var(--p-motion-duration-50) var(--p-motion-ease);\n}\n\n.track:after {\n  content: '';\n  position: absolute;\n  z-index: 1;\n  top: -0.0625rem;\n  right: -0.0625rem;\n  bottom: -0.0625rem;\n  left: -0.0625rem;\n  display: block;\n  pointer-events: none;\n  box-shadow: 0 0 0 -0.0625rem var(--p-color-border-focus);\n  transition: box-shadow var(--p-motion-duration-100) var(--p-motion-ease);\n  border-radius: calc(var(--p-border-radius-100) + 0.0625rem);\n}\n\n.track_on {\n  background: var(--p-color-bg-inverse);\n}\n\n.knob {\n  height: 0.75rem;\n  width: 0.75rem;\n  border-radius: 0.1875rem;\n  background: var(--p-color-bg-surface);\n  transition: transform var(--p-motion-duration-50) var(--p-motion-ease);\n}\n\n.knob_on {\n  transform: translate(100%);\n}\n\n.track:hover {\n  background: rgba(97, 97, 97, 1);\n}\n\n.track_on:hover {\n  background: rgba(48, 48, 48, 1);\n}\n",
-    "lang": "css"
+    "lang": "css",
+    "variant": "react"
+  },
+  {
+    "title": "Example Usage",
+    "content": "import { useState } from 'react';\nimport { Knob } from './Knob';\n\nexport function Example() {\n  const [selected, setSelected] = useState(false);\n\n  return (\n    <s-page inlineSize=\"small\">\n      <s-section padding=\"base\">\n        <s-stack direction=\"inline\" justifyContent=\"space-between\">\n          <s-stack direction=\"inline\" justifyContent=\"start\" gap=\"small\" alignItems=\"center\">\n            <s-text>\n              Toggle Knob\n            </s-text>\n            <s-badge tone={selected ? 'success' : 'caution'}>\n              {selected ? 'Enabled' : 'Disabled'}\n            </s-badge>\n          </s-stack>\n          <Knob\n            selected={selected}\n            ariaLabel='Example knob'\n            onClick={() => setSelected((prev) => !prev)}\n          />\n        </s-stack>\n      </s-section>\n    </s-page>\n  );\n}\n",
+    "lang": "jsx",
+    "variant": "web-components"
+  },
+  {
+    "title": "Knob.jsx",
+    "content": "import styles from './Knob.module.css';\n\n/**\n * @typedef {Object} KnobProps\n * @property {string} ariaLabel - The aria-label for the knob\n * @property {boolean} selected - Whether the knob is selected or not\n * @property {() => void} onClick - The function to call when the knob is clicked\n */\n\n/**\n * Knob component\n * @param {KnobProps} props - The props for the Knob component\n * @returns {JSX.Element} The rendered Knob component\n */\nexport const Knob = ({ ariaLabel, selected, onClick }) => {\n  return (\n    <button\n      id=':rgi:'\n      className={`${styles.track} ${selected && styles.track_on}`}\n      aria-label={ariaLabel}\n      role='switch'\n      type='button'\n      aria-checked='false'\n      onClick={onClick}\n    >\n      <div className={`${styles.knob} ${selected && styles.knob_on}`}></div>\n    </button>\n  );\n};\n",
+    "lang": "jsx",
+    "variant": "web-components"
+  },
+  {
+    "title": "Knob.module.css",
+    "content": ".track {\n  height: var(--track-height);\n  width: 2rem;\n  background: var(--p-color-icon-secondary);\n  padding: 0.25rem;\n  box-shadow: inset 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.05);\n  border: none;\n  border-radius: 0.375rem;\n  cursor: pointer;\n  transition: background var(--p-motion-duration-50) var(--p-motion-ease);\n}\n\n.track:after {\n  content: '';\n  position: absolute;\n  z-index: 1;\n  top: -0.0625rem;\n  right: -0.0625rem;\n  bottom: -0.0625rem;\n  left: -0.0625rem;\n  display: block;\n  pointer-events: none;\n  box-shadow: 0 0 0 -0.0625rem var(--p-color-border-focus);\n  transition: box-shadow var(--p-motion-duration-100) var(--p-motion-ease);\n  border-radius: calc(var(--p-border-radius-100) + 0.0625rem);\n}\n\n.track_on {\n  background: var(--p-color-bg-inverse);\n}\n\n.knob {\n  height: 0.75rem;\n  width: 0.75rem;\n  border-radius: 0.1875rem;\n  background: var(--p-color-bg-surface);\n  transition: transform var(--p-motion-duration-50) var(--p-motion-ease);\n}\n\n.knob_on {\n  transform: translate(100%);\n}\n\n.track:hover {\n  background: rgba(97, 97, 97, 1);\n}\n\n.track_on:hover {\n  background: rgba(48, 48, 48, 1);\n}\n",
+    "lang": "css",
+    "variant": "web-components"
   }
 ];

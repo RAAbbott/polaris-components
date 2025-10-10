@@ -1,12 +1,24 @@
 {
   "files": [
     {
-      "file": "Preview/Example.jsx",
-      "title": "Example Usage"
+      "file": "Preview/react/Example.jsx",
+      "title": "Example Usage",
+      "variant": "react"
     },
     {
-      "file": "Preview/StatBox.jsx",
-      "title": "StatBox.jsx"
+      "file": "Preview/react/StatBox.jsx",
+      "title": "StatBox.jsx",
+      "variant": "react"
+    },
+    {
+      "file": "Preview/web-components/Example.jsx",
+      "title": "Example Usage",
+      "variant": "web-components"
+    },
+    {
+      "file": "Preview/web-components/StatBox.jsx",
+      "title": "StatBox.jsx",
+      "variant": "web-components"
     }
   ]
 }

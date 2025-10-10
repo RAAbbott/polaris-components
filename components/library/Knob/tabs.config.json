@@ -1,17 +1,36 @@
 {
   "files": [
     {
-      "file": "Preview/Example.jsx",
-      "title": "Example Usage"
+      "file": "Preview/react/Example.jsx",
+      "title": "Example Usage",
+      "variant": "react"
     },
     {
-      "file": "Preview/Knob.jsx",
-      "title": "Knob.jsx"
+      "file": "Preview/react/Knob.jsx",
+      "title": "Knob.jsx",
+      "variant": "react"
     },
     {
-      "file": "Preview/Knob.module.css",
+      "file": "Preview/react/Knob.module.css",
       "title": "Knob.module.css",
-      "lang": "css"
+      "lang": "css",
+      "variant": "react"
+    },
+    {
+      "file": "Preview/web-components/Example.jsx",
+      "title": "Example Usage",
+      "variant": "web-components"
+    },
+    {
+      "file": "Preview/web-components/Knob.jsx",
+      "title": "Knob.jsx",
+      "variant": "web-components"
+    },
+    {
+      "file": "Preview/web-components/Knob.module.css",
+      "title": "Knob.module.css",
+      "lang": "css",
+      "variant": "web-components"
     }
   ]
 }

@@ -1,0 +1,50 @@
+.track {
+  height: var(--track-height);
+  width: 2rem;
+  background: var(--p-color-icon-secondary);
+  padding: 0.25rem;
+  box-shadow: inset 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background var(--p-motion-duration-50) var(--p-motion-ease);
+}
+
+.track:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -0.0625rem;
+  right: -0.0625rem;
+  bottom: -0.0625rem;
+  left: -0.0625rem;
+  display: block;
+  pointer-events: none;
+  box-shadow: 0 0 0 -0.0625rem var(--p-color-border-focus);
+  transition: box-shadow var(--p-motion-duration-100) var(--p-motion-ease);
+  border-radius: calc(var(--p-border-radius-100) + 0.0625rem);
+}
+
+.track_on {
+  background: var(--p-color-bg-inverse);
+}
+
+.knob {
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 0.1875rem;
+  background: var(--p-color-bg-surface);
+  transition: transform var(--p-motion-duration-50) var(--p-motion-ease);
+}
+
+.knob_on {
+  transform: translate(100%);
+}
+
+.track:hover {
+  background: rgba(97, 97, 97, 1);
+}
+
+.track_on:hover {
+  background: rgba(48, 48, 48, 1);
+}
