@@ -7,8 +7,6 @@ export const SetupGuide = ({ onDismiss, onStepComplete, items }) => {
   const accessId = useId();
   const completedItemsLength = items.filter((item) => item.complete).length;
 
-  console.log(completedItemsLength, 'complete')
-
   return (
     <s-section padding="none">
       <s-box padding="base" paddingBlockEnd="none">
