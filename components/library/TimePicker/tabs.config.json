@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "file": "Preview/react/Example.jsx",
+      "title": "Example Usage",
+      "variant": "react"
+    },
+    {
+      "file": "Preview/react/TimePicker.jsx",
+      "title": "TimePicker.jsx",
+      "variant": "react"
+    },
+    {
+      "file": "Preview/web-components/Example.jsx",
+      "title": "Example Usage",
+      "variant": "web-components"
+    },
+    {
+      "file": "Preview/web-components/TimePicker.jsx",
+      "title": "TimePicker.jsx",
+      "variant": "web-components"
+    }
+  ]
+}

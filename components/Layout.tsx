@@ -143,6 +143,12 @@ export const Layout = ({ children }: PropsWithChildren) => {
               icon: AppsIcon,
               selected: asPath === '/components/review-banner',
               onClick: () => changePage('/components/review-banner')
+            },
+            {
+              label: 'Time Picker',
+              icon: AppsIcon,
+              selected: asPath === '/components/time-picker',
+              onClick: () => changePage('/components/time-picker')
             }
           ]}
           action={{
