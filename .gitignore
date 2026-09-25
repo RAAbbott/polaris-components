@@ -36,3 +36,6 @@ next-env.d.ts
 
 # local archive
 /_archive
+# agent / browser-automation artifacts (never commit)
+.playwright-mcp/
+.context/

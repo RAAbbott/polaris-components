@@ -2,8 +2,16 @@
 
 A collection of components for Shopify app developers, based on the Polaris UI library & design system
 
+**Live site: [polariscomponents.dev](https://polariscomponents.dev)**
+
+> **⚠️ Domain change (September 2026):** Polaris Components has moved to **[polariscomponents.dev](https://polariscomponents.dev)**.
+> The previous domain, `polariscomponents.com`, expired in August 2026 and is now owned by an unrelated third party.
+> Anything served at the old domain is a stale copy and is not affiliated with this project or its maintainer.
+> Please update your bookmarks and links.
+
 ## 🚀 Quick Links
 
+- **[Live Site](https://polariscomponents.dev)** - Browse and copy components
 - **[Contributing Guide](./CONTRIBUTING.md)** - Complete guide for contributors
 - **[Quick Start](./QUICKSTART.md)** - Get your first component running in 5 minutes
 - **[Development Workflow](./docs/WORKFLOW.md)** - Daily development processes
